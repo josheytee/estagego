@@ -1,0 +1,85 @@
+EstateGo Website Dbase Structure
+
+HOME TABLE
+page_title
+matatags
+keywords
+id
+h1
+h2_orange
+h2
+caption
+appstore_url
+googleplay_url
+video_url
+total_users
+total_downloads
+total_households
+total_cities
+total_countries
+
+
+CONTACT TABLE
+id
+country
+address
+email
+phone_number
+mobile_number
+facebook_url
+twitter_url
+linkedin_url
+tiktok_url
+
+MAILING_LIST TABLE
+id
+first_name
+last_name
+email
+phone
+country
+
+CLIENT TABLE
+id
+name
+logo
+content
+country
+
+Testimonials TABLE
+id
+name
+position
+company
+content
+image
+
+FAQ TABLE
+id
+question
+answer
+category
+sub-category
+featured
+
+Blog TABLE
+id
+title
+content
+image
+date
+tags
+authur_id
+
+AUthur TABLE
+id
+first_name
+last_name
+image
+
+Services TABLE
+id
+service_name
+description
+image
+url
