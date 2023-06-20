@@ -30,15 +30,20 @@ class ContactController extends Controller
         $contact=new ContactMessage;
         $contact->name=$request->input('name');
         $contact->email=$request->input('email');
-        $contact->company=$request->input('company-name');
+        $contact->company_name=$request->input('company_name');
         $contact->country=$request->input('country');
-         $contact->phone_number=$request->input('phone');
+         $contact->phone=$request->input('phone');
          $contact->website=$request->input('website');
          $contact->message=$request->input('message');
          $contact->agreement=$request->input('agreement');
-        $contact->save();
 
+       if( $contact->save()){
+        $contact->save();
         return back()->with('msgSuccess','Your message as been sent successful');
+       }else
+       {
+        return back()->with('msgError','Your message was not sent successful,please try again');
+       }
 
     }
 }

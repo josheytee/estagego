@@ -34,6 +34,10 @@
               <div class="container content-justify-center">
                 {!! "<div class='alert alert-success'>".Session::get('msgSuccess')."</div>" !!} 
               </div>
+            @elseif (Session::has('msgError'))
+            <div class="container content-justify-center">
+                {!! "<div class='alert alert-warnining'>".Session::get('msgError')."</div>" !!} 
+              </div>
             @endif
                 </div>
                   <form action="{{url('/contact')}}" method="POST" >
@@ -52,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <select class="form-control" name='country'>
-                          <option value="">Country</option>
+                          <option value="Nigeria">Country</option>
                         </select>
                     </div>
                     <div class="form-group">
