@@ -26,7 +26,7 @@ class TenantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() 
     {
         //
     }
@@ -50,7 +50,7 @@ class TenantController extends Controller
      */
     public function show($id)
     {
-        $subcategoryName='GETTING STARTED';
+        $subCategoryName='GETTING STARTED';
           //  $categories=Category::with(['SubCategory'])->get();
         $categories=Category::with(['SubCategory'])->where('id','=',$id)->get();
          $ty=$id;
@@ -65,7 +65,7 @@ class TenantController extends Controller
 
         // $faqs=Faq::where('subcategory_name','=','GETTING STARTED')->where('category_id','=',$id);
 
-        return view('tenant', compact('categories','ty'));
+        return view('tenant', compact('categories','ty','subCategoryName'));
     }
 
     /**

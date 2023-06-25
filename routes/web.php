@@ -12,6 +12,8 @@ use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\OtherController;
 use App\Http\Controllers\MailListController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CommentController;
 
 
 /*
@@ -51,9 +53,17 @@ Route::resource('/faq_view', FaqviewController::class);
 Route::get('/blog', [BlogController::class, 'index']);
 
 // blog view page
-Route::get('/blog_view', [BlogviewController::class, 'index']);
+
+Route::get('/blog_view/{blog_view}', [BlogviewController::class, 'show']);
 
 // about
 Route::get('/about', [AboutController::class,'index']);
-
+// mail
 Route::resource('/mail', MailListController::class);
+
+// service    
+Route::get('/services', [ServiceController::class,'index'])->name('services');
+Route::get('/services/{services}', [serviceController::class, 'show']);
+
+// comment
+Route::POST('/comment',[CommentController::class, 'store']);

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTableContactMessages extends Migration
+class AlterTableAuthors extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class AlterTableContactMessages extends Migration
      */
     public function up()
     {
-        //
+         schema::table('authors',function(Blueprint $table){
+            $table->string('company')->nullable()->after('image');
+       });
     }
 
     /**

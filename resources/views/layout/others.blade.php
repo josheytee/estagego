@@ -16,7 +16,7 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><span>»</span></li>
-            <li><a href="reviews.html">Help Center - PROPERTY OWNERS / MANAGERS</a></li>
+            <li><a href="reviews.html">Help Center - OTHERS</a></li>
           </ul>
         </div>
       </div>
@@ -51,15 +51,47 @@
 {{-- <div class="nav-item"> <a class="dark_btn" href="#">GETTING STARTED</a> &nbsp;  &nbsp;  &nbsp; <a class="dark_btn" href="#">MANAGING PROPERTIES</a> &nbsp;  &nbsp;  &nbsp; <a class="dark_btn" href="#">GETTING REPORTS</a>
 </div> --}}
   
-    <div class="nav-item"> 
+<div class="nav-item"> 
       @foreach ($categories as $category )
-        
-    
-      @foreach ( $category->SubCategory as $subCategory )
-      <a class="dark_btn" href="{{url($subCategory->url.'/'.$subCategory->category_id.'?subcategory='.$subCategory->subcategory_name)}}">
-        {{-- href="ledgerinc.php?name='.$value['acct_name'].'&from='.$from.'&to='.$to.'&acct_code='.$value['acct_type'].'&pageName='.$pagename.'"  --}}
-        {{$subCategory->subcategory_name}}</a> &nbsp;  &nbsp;  &nbsp;
-      @endforeach
+        @foreach ( $category->SubCategory as $subCategory )
+        {{-- <a class="{{request()->is('tenant/1') ? 'active rounded-pill p-2' : ''}}" href="{{url($subCategory->url.'/'.$subCategory->category_id.'?subcategory='.$subCategory->subcategory_name)}}"> --}}
+          
+          {{-- @php
+            if($subCategoryName==$subCategory->subcategory_name){
+              print ("<a class='active rounded-pill p-2' href=$subCategory->url.'/'.$subCategory->category_id.'?subcategory='.$subCategory->subcategory_name>");
+            }
+            
+          @endphp --}}
+          
+
+          @if($subCategory->subcategory_name)
+          <a class='' href="{{url($subCategory->url.'/'.$subCategory->category_id."?subcategory=".$subCategory->subcategory_name)}}">  
+          @endif
+
+          @if($_GET['subcategory']=='GETTING STARTED')
+            @if ($subCategory->subcategory_name=='GETTING STARTED')
+              <a class='active rounded-pill p-2' href="{{url($subCategory->url.'/'.$subCategory->category_id."?subcategory=".$subCategory->subcategory_name)}}">
+            @endif
+          @endif
+
+
+          @if($_GET['subcategory']=='MANAGING PROPERTIES')
+            @if($subCategory->subcategory_name == 'MANAGING PROPERTIES')
+            <a class='active rounded-pill p-2' href="{{url($subCategory->url.'/'.$subCategory->category_id."?subcategory=".$subCategory->subcategory_name)}}"> 
+            @endif
+          @endif
+
+          @if($_GET['subcategory']=='GETTING REPORTS')
+            @if($subCategory->subcategory_name == 'GETTING REPORTS')
+              <a class='active rounded-pill p-2' href="{{url($subCategory->url.'/'.$subCategory->category_id."?subcategory=".$subCategory->subcategory_name)}}">
+            @endif
+          @endif
+
+
+
+          {{-- href="ledgerinc.php?name='.$value['acct_name'].'&from='.$from.'&to='.$to.'&acct_code='.$value['acct_type'].'&pageName='.$pagename.'"  --}}
+          {{$subCategory->subcategory_name}}</a> &nbsp;  &nbsp;  &nbsp;
+        @endforeach
       @endforeach
     </div>
   

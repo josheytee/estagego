@@ -1,4 +1,5 @@
 @extends('layout.inner')
+  @section('title','EstateGo:Blogs')
    @section('content')
 
    
@@ -39,8 +40,15 @@
 
           <div class="col-lg-6" data-aos="fade-in" data-aos-duration="1500">
             <div class="blog_img">
-                <img src="{{asset('asset/images/'.$blogPost->image)}}" alt="image">
-                <span>20 min ago</span>
+                {{-- <img src="{{asset('asset/images/'.$blogPost->image)}}" alt="image"> --}}
+                <img src="{{$blogPost->image}}" alt="image">
+                <span>
+                  @php
+                  $time=strtotime($blogPost->updated_at);
+                  $duration=Date('h\h i\ \m\i\n',$time);
+                  echo($duration);
+                  @endphp
+                </span>
             </div>
           </div>
           <div class="col-lg-6">
@@ -48,8 +56,8 @@
                 <span class="choice_badge">EDITOR CHOICE</span>
                 <div class="section_title">
                   <h2>{{$blogPost->title}}</h2>
-                  <p> {{$blogPost->caption}}</p>
-                    <a href="{{url('blog_view')}}">READ MORE</a>
+                  <p> {{Str::limit($blogPost->content,200)}}</p>
+                    <a href="{{url('blog_view/'.$blogPost->id)}}">READ MORE</a>
                 </div>
               </div>
           </div>
@@ -72,23 +80,36 @@
             <div class="col-md-4">
                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                     <div class="story_img">
-                      <img src="{{asset('asset/images/'.$post->image)}}" alt="image" >
-                      <span>45 min ago</span>
+                      {{-- <img src="{{asset('asset/images/'.$post->image)}}" alt="image" > --}}
+                      <img src="{{$post->image}}" alt="image" >
+                      <span>
+                         @php
+                            $time=strtotime($post->updated_at);
+                            $duration=Date('h\h i\ \m\i\n',$time);
+                            echo($duration);
+                         @endphp
+                      </span>
                     </div>
                     <div class="story_text">
                         <h3>{{$post->title}}</h3>
-                        <p>{{$post->caption}}</p>
-                        <a href="{{url('blog_view')}}">READ MORE</a>
+                        <p>{{Str::limit($post->content, 100)}}</p>
+                        <a href="{{url('blog_view/'.$post->id)}}">READ MORE</a>
                     </div>
                 </div>
             </div>
-@endforeach
+          @endforeach
+          <div class="pagination_block container">
+            <ul>
+              <li>
+          {{$blogPost2->links()}}
+              </li>
+              <ul>
 
           </div>
           <!-- row end -->
 
           <!-- Pagination -->
-          <div class="pagination_block">
+          {{-- <div class="pagination_block">
             <ul>
               <li><a href="#" class="prev"><i class="icofont-arrow-left"></i> Prev</a></li>
               <li><a href="#">1</a></li>
@@ -99,7 +120,7 @@
               <li><a href="#">6</a></li>
               <li><a href="#" class="next">Next <i class="icofont-arrow-right"></i></a></li>
             </ul>
-          </div>
+          </div> --}}
       </div>
       <!-- container end -->
     </section>

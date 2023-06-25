@@ -5,7 +5,8 @@ use App\Models\Page;
 use App\Models\AppDownload;
 use App\Models\Contact;
 use App\Models\Category;
-
+use App\Models\Blog;
+use Illuminate\Pagination\Paginator;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
                View()->composer(['layout.inner','index','layout.main','layout.blog_inner','layout.help_inner'], function($view)
         {
             // $service=Page::with('Service_product')->get();
@@ -66,6 +68,19 @@ class AppServiceProvider extends ServiceProvider
              ->with('categories',$category) 
         ;
         }); 
+
+        View()->composer(['partials.latestnews'], function($view)
+        {
+           
+             $blog=Blog::take(3)->latest()->get();
+
+            //      
+
+        $view->with('blogs',$blog)
+            
+        ;
+        }); 
+
 
         
 

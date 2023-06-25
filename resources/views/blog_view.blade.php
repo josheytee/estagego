@@ -2,15 +2,16 @@
    @section('content')
 
 
+
     <!-- BredCrumb-Section -->
     <div class="bred_crumb blog_detail_bredcrumb">
       <div class="container">
         <div class="bred_text">
-          <h1>Blog details</h1>
+          <h1>{{config('app.name').' '.$blogName->pageName}}</h1>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{url("$homeName->url")}}">{{$homeName->pageName}}</a></li>
             <li><span>»</span></li>
-            <li><a href="blog-detail.html"> Blog single</a></li>
+            <li><a href="{{url("$blogName->url")}}"> {{$blogName->pageName}}</a></li>
           </ul>
         </div>
       </div>
@@ -22,17 +23,39 @@
         <div class="blog_inner_pannel">
             <div class="review">
               <span>Review</span>
-              <span>45 min ago</span>
+              <span>
+                @php
+                
+                  $time = strtotime($singleBlog->updated_at);
+                
+                  $date=date('F d, Y',$time);
+                  $postDuration  = Date('h\h i\ \m\i\n',$time);
+                 echo $postDuration.' '.'ago';
+
+                @endphp 
+             </span>
             </div>
             <div class="section_title">
-              <h2>Top rated app of the year!</h2>
+              <h2>{{$singleBlog->title}}</h2>
             </div>
+
+            @if (Session::has('msgSuccess'))
+                <div class="container content-justify-center">
+                  {!! "<div class='alert alert-success'>".Session::get('msgSuccess')."</div>" !!} 
+                </div>
+              @elseif (Session::has('msgError'))
+              <div class="container content-justify-center">
+                  {!! "<div class='alert alert-warnining'>".Session::get('msgError')."</div>" !!} 
+                </div>
+            @endif
+
+
             <div class="main_img">
               <img src="{{asset('asset/images/blog_detail_main.png')}}" alt="image">
             </div>
             <div class="info">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic Lorem Ipsum is simply dummy text of the printing and typesettingindustry lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived.</p>
-              <p>Printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unnown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic Lorem Ipsum is simply dummy text of the printing and typesettingindustry lorem Ipsum has been the industrys centuries, but also the leap into electronic.</p>
+              <p class="">{{$singleBlog->content}}</p>
+              {{-- <p>Printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unnown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic Lorem Ipsum is simply dummy text of the printing and typesettingindustry lorem Ipsum has been the industrys centuries, but also the leap into electronic.</p>
               <h3>Why we are best</h3>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.</p>
               <ul>
@@ -44,7 +67,7 @@
                 <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Dustry lorem Ipsum has been the industrys standard dummy text ev er since.</p></li>
                 <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Unknown printer took a galley of type and scrambled it to make.</p></li>
                 <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Type specimen book. It has survived not only.</p></li>
-              </ul>
+              </ul> --}}
             </div>
             <div class="two_img">
               <div class="row">
@@ -56,24 +79,24 @@
                 </div>
               </div>
             </div>
-            <div class="info">
+            {{-- <div class="info">
               <h3>Why we are best</h3>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic Lorem Ipsum is simply dummy text of the printing and typesettingindustry lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived.</p>
-            </div>
+            </div> --}}
             <div class="quote_block">
               <span class="q_icon"><img src="{{asset('asset/images/quote_icon.png')}}" alt="image"></span>
-              <h2>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy.</h2>
-              <p><span class="name">Mr. John Doe,</span> Apper Inc</p>
+              <h2>{{$singleBlog->caption}}</h2>
+              <p><span class="name">{{$blogBelongs->Author->first_name.' '.$blogBelongs->Author->last_name}}</span> {{$blogBelongs->Author->company}}</p>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic industry.</p>
+            {{-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic industry.</p> --}}
             <div class="blog_authore">
                 <div class="authore_info">
                     <div class="avtar">
-                      <img src="{{asset('asset/images/blog_d02.png')}}" alt="image">
+                      {{-- <img src="{{asset('asset/images/blog_d02.png')}}" alt="image"> --}}
                     </div>
                     <div class="text">
-                      <h3>By: John Dow</h3>
-                      <span>July 25, 2022</span>
+                      <h3>By: J{{$blogBelongs->Author->first_name.' '.$blogBelongs->Author->last_name}}</h3>
+                      <span>{{$date}}</span>
                     </div>
                 </div>
                 <div class="social_media">
@@ -101,53 +124,56 @@
     <section class="row_am comment_section">
       <div class="container">
         <div class="section_title">
-           <h2>3 Comments</h2>
+           <h2>
+              {!! $comments->count().' '.'<span>Comments</span>'!!}
+           </h2>
         </div>
         <ul>
-          <li>
-            <div class="authore_info">
-              <div class="avtar">
-                <img src="{{asset('asset/images/blog_d01.png')}}" alt="image">
+          @foreach ($comments as $comment)
+            <li>
+              <div class="authore_info">
+                {{-- <div class="avtar">
+                  <img src="{{asset('asset/images/blog_d01.png')}}" alt="image">
+                </div> --}}
+                <div class="text">
+                  <span>30 min ago</span>
+                  <h4>{{$comment->name}}</h4>
+                </div>
               </div>
-              <div class="text">
-                <span>30 min ago</span>
-                <h4>Dolly Shell</h4>
+              <div class="comment">
+                <p>{{$comment->comment}} </p>
               </div>
-            </div>
-            <div class="comment">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the in
-                dustrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen. </p>
-            </div>
-          </li>
-          <li class="replay_comment">
-            <div class="authore_info">
-              <div class="avtar">
-                <img src="{{asset('asset/images/blog_d02.png')}}" alt="image">
+            </li>
+            {{-- <li class="replay_comment">
+              <div class="authore_info">
+                <div class="avtar">
+                  <img src="{{asset('asset/images/blog_d02.png')}}" alt="image">
+                </div>
+                <div class="text">
+                  <span>15 min ago</span>
+                  <h4>Devil Joe</h4>
+                </div>
               </div>
-              <div class="text">
-                <span>15 min ago</span>
-                <h4>Devil Joe</h4>
+              <div class="comment">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the when.</p>
               </div>
-            </div>
-            <div class="comment">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the when.</p>
-            </div>
-          </li>
-          <li>
-            <div class="authore_info">
-              <div class="avtar">
-                <img src="{{asset('asset/images/blog_d03.png')}}" alt="image">
+            </li>
+            <li>
+              <div class="authore_info">
+                <div class="avtar">
+                  <img src="{{asset('asset/images/blog_d03.png')}}" alt="image">
+                </div>
+                <div class="text">
+                  <span>2 days ago</span>
+                  <h4>Sherly Shie</h4>
+                </div>
               </div>
-              <div class="text">
-                <span>2 days ago</span>
-                <h4>Sherly Shie</h4>
+              <div class="comment">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the in
+                  dustrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen. </p>
               </div>
-            </div>
-            <div class="comment">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the in
-                dustrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen. </p>
-            </div>
-          </li>
+            </li> --}}
+           @endforeach
         </ul>
       </div>
     </section>
@@ -160,31 +186,32 @@
           <h2>Leave a <span>comment</span></h2>
           <p>Your email address will not be published. Required fields are marked *</p>
         </div>
-        <form action="">
+        <form action="{{url('comment')}}" method="POST">
+          @csrf
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name *">
+                <input type="text" class="form-control" placeholder="Name *" name='name'>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email *">
+                <input type="email" class="form-control" placeholder="Email *" name='email'>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Phone">
+                <input type="text" class="form-control" placeholder="Phone" name='phone'>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Website  ">
+                <input type="text" class="form-control" placeholder="Website" name='website'>
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <textarea class="form-control" placeholder="Comments"></textarea>
+                <textarea class="form-control" placeholder="Comments" name='comment'></textarea>
               </div>
             </div>
             <div class="col-md-12 text-center">
@@ -197,67 +224,7 @@
 
 
     <!-- Story-Section-Start -->
-    <section class="row_am latest_story" id="blog">
-      <!-- container start -->
-       <div class="container">
-           <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-               <h2>Read latest <span>story</span></h2>
-               <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe standard dummy.</p>
-           </div>
-           <!-- row start -->
-           <div class="row">
-             <!-- story -->
-             <div class="col-md-4">
-                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
-                     <div class="story_img">
-                       <img src="{{asset('asset/images/story01.png')}}" alt="image" >
-                       <span>45 min ago</span>
-                     </div>
-                     <div class="story_text">
-                         <h3>Cool features added!</h3>
-                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting 
-                           industry lorem Ipsum has.</p>
-                         <a href="#">READ MORE</a>
-                     </div>
-                 </div>
-             </div>
- 
-             <!-- story -->
-             <div class="col-md-4">
-                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
-                     <div class="story_img">
-                       <img src="{{asset('asset/images/story02.png')}}" alt="image" >
-                       <span>45 min ago</span>
-                     </div>
-                     <div class="story_text">
-                           <h3>Top rated app! Yupp.</h3>
-                         <p>Simply dummy text of the printing and typesetting industry lorem Ipsum has Lorem Ipsum is.</p>
-                         <a href="#">READ MORE</a>
-                     </div>
-                 </div>
-             </div>
- 
-             <!-- story -->
-             <div class="col-md-4">
-                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
-                     <div class="story_img">
-                       <img src="{{asset('asset/images/story03.png')}}" alt="image" >
-                       <span>45 min ago</span>
-                     </div>
-                     <div class="story_text">
-                           <h3>Creative ideas on app.</h3>
-                         <p>Printing and typesetting industry lorem Ipsum has Lorem simply dummy text of the.</p>
-                         <a href="#">READ MORE</a>
-                     </div>
-                 </div>
-             </div>
-           </div>
-           <!-- row end -->
-       </div>
-       <!-- container end -->
-     </section>
-     <!-- Story-Section-end -->
-
+    @include('partials.latestnews')
 
    
 

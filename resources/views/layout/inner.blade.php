@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact us</title>
+   <title>@yield('title')</title>
 
   <!-- icofont-css-link -->
   <link rel="stylesheet" href="{{asset('asset/css/icofont.min.css')}}">
@@ -20,6 +20,10 @@
   <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
   <!-- Responsive-Style-link -->
   <link rel="stylesheet" href="{{asset('asset/css/responsive.css')}}">
+      		{{-- boostrap select --}}
+   <link rel="stylesheet" href="{{asset('asset/css/bootstrap-select.min.css')}}">	
+  		{{-- boostrap select-country --}}
+   <link rel="stylesheet" href="{{asset('asset/css/bootstrap-select-country.min.css')}}">	
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{asset('asset/images/favicon.png')}}" type="image/x-icon">
 
@@ -69,7 +73,7 @@
                   <ul>
                     @foreach ( $page->Categories as $dropdown)
                    
-                    <li><a href="{{url($dropdown->url.'/'.$dropdown->id)}}">{{$dropdown->category_name}}</a></li>
+                    <li><a href="{{url($dropdown->url.'/'.$dropdown->id."?subcategory=GETTING STARTED")}}">{{$dropdown->category_name}}</a></li>
                     @endforeach
                   </ul>
                   
@@ -216,10 +220,14 @@
           <!-- row start -->
           <div class="row">
             <div class="col-md-6">
-              <p>© Copyrights 2022. All rights reserved.</p>
+              <p>© Copyrights 
+                @php
+                 echo date('Y').'.';
+                @endphp
+                 All rights reserved.</p>
             </div>
             <div class="col-md-6">
-              <p class="developer_text">Design & developed by <a href="https://themeforest.net/user/kalanidhithemes" target="blank">Kalanidhi Themes</a></p>
+              <p class="developer_text">Design by <a href="#" target="blank">Staunch Technologies</a></p>
             </div>
           </div>
           <!-- row end -->
@@ -239,15 +247,27 @@
   <!-- Page-wrapper-End -->
 
   <!-- Jquery-js-Link -->
-  <script src="{{asset('asset/js/jquery.js')}}"></script>
+    <script src="{{asset('asset/js/jquery.js')}}"></script>
   <!-- owl-js-Link -->
   <script src="{{asset('asset/js/owl.carousel.min.js')}}"></script>
   <!-- bootstrap-js-Link -->
   <script src="{{asset('asset/js/bootstrap.min.js')}}"></script>
+   {{-- bootstrap select min-js --}}
+  <script src="{{asset('asset/js/bootstrap-select.min.js')}}"></script>
+   {{-- bootstrap select country-min-js --}}
+  <script src="{{asset('asset/js/bootstrap-select-country.min.js')}}"></script>
   <!-- aos-js-Link -->
   <script src="{{asset('asset/js/aos.js')}}"></script>
   <!-- main-js-Link -->
   <script src="{{asset('asset/js/main.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  {{-- <script>
+    	$('.form-control').selectpicker({
+deselectAllText:'Deselect All',
+
+
+});
+    </script>> --}}
 
 </body>
 

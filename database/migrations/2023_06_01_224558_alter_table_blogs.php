@@ -15,7 +15,7 @@ class AlterTableBlogs extends Migration
     {
         schema::table('blogs',function(Blueprint $table){
             $table->string('caption')->after('title');
-            $table->string('content')->after('caption');
+            $table->longText('content')->after('caption');
 
 
         });

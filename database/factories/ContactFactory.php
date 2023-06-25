@@ -14,8 +14,9 @@ class ContactFactory extends Factory
     public function definition()
     {
         return [
-            'country'=>$this->faker->word(),
+            // 'country'=>$this->faker->word(),
             'address'=>$this->faker->sentence(),'email'=>$this->faker->safeEmail(),'phone_number'=>$this->faker->phoneNumber(),
+            'website'=>$this->faker->url(),
             'mobile'=>$this->faker->phoneNumber,'facebook_url'=>$this->faker->imageUrl(),'twitter_url'=>$this->faker->imageUrl(),'linkedin_url'=>$this->faker->imageUrl(),'tiktok_url'=>$this->faker->imageUrl()
         ];
     }

@@ -1,11 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Blog;
 
 use Illuminate\Database\Seeder;
+use App\Models\ServicePage;
 
-class BlogTableSeeder extends Seeder
+class ServicePageTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class BlogTableSeeder extends Seeder
      */
     public function run()
     {
-       Blog::factory(3)->create();
+        ServicePage::factory(3)->create();
     }
 }

@@ -14,4 +14,9 @@ protected $fillable=['pageName','class1','class2','url'];
 public function Categories(){
 return $this->hasMany(Category::class,'page_id','id');
 }
+
+public function ServicePage(){
+
+   return $this->hasMany(ServicePage::class,'page_id','id'); 
+}
 }

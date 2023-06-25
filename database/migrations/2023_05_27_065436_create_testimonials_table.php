@@ -18,7 +18,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('name',50);
             $table->string('position',100);
             $table->string('company',100);
-            $table->longText('content');
+            $table->string('content');
             $table->string('image',100);
             $table->timestamps();
 

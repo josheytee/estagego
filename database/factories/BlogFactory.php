@@ -23,9 +23,10 @@ class BlogFactory extends Factory
             'caption'=>$this->faker->sentence,
             'content'=>$this->faker->unique()->sentence,
             'image'=>$this->faker->imageUrl(),
-            'date'=>$this->faker->word(),
+            'date'=>date('Y-m-d'),
             'tags'=>$this->faker->word(),
-            'top_blog'=>$this->faker->unique()->randomElement([1,0]),
+            // 'top_blog'=>$this->faker->unique()->randomElement([1,0]),
+             'top_blog'=>'0'
         
 
         ];
