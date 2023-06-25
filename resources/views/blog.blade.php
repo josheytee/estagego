@@ -80,8 +80,8 @@
             <div class="col-md-4">
                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                     <div class="story_img">
-                      {{-- <img src="{{asset('asset/images/'.$post->image)}}" alt="image" > --}}
-                      <img src="{{$post->image}}" alt="image" >
+                      <img src="{{asset('asset/images/'.$post->image)}}" alt="image" >
+                      {{-- <img src="{{$post->image}}" alt="image" > --}}
                       <span>
                          @php
                             $time=strtotime($post->updated_at);

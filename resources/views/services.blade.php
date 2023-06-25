@@ -50,12 +50,12 @@
                 @foreach ($services->ServicePage as $service )
                     
                
-            <div class="col-md-4">
+            <div class="col-md-4 mt-5">
                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                     <div class="story_img">
-                      {{-- <img src="{{asset('asset/images/banner1.png')}}" alt="image" > --}}
-                      <img src="{{$service->image}}" alt="image" >
-                      {{-- <span>45 min ago</span>                     --}}
+                      <img src="{{asset('asset/images/'.$service->image)}}" alt="image" >
+                      {{-- <img src="{{$service->image}}" alt="image" > --}}
+                      
                     </div>
                     <div class="story_text">
                         <h3>{{$service->title}}</h3>

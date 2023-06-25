@@ -28,16 +28,33 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+     {  
+        //  enabled because of pagination
         Paginator::useBootstrap();
+
                View()->composer(['layout.inner','index','layout.main','layout.blog_inner','layout.help_inner'], function($view)
         {
             // $service=Page::with('Service_product')->get();
-             $page=Page::all()->load(['Categories']);
+            //  $page=Page::all()->load(['Categories','ServicePage']);
+
+            $pageWithAbout=Page::all();
+
+            $page=Page::with('Categories','ServicePage')->where('pageName','!=','About')->get();
            
+             $contact=Contact::all()->first();
+          
+            $category=Category::all();
+
+            $appdownload=AppDownload::all()->first();
             //      
 
+       
+
         $view->with('pages',$page) 
+        ->with('contact',$contact)
+        ->with('categories',$category)
+        ->with('appdownload',$appdownload)
+        ->with('pageWithAbout',$pageWithAbout)
         ;
         });
 
@@ -49,25 +66,13 @@ class AppServiceProvider extends ServiceProvider
            
             //      
 
-        $view->with('appDownload',$App) 
+        $view->with('appdownload',$App) 
         ;
         });
         //
 
 
-        View()->composer(['layout.inner','layout.main'], function($view)
-        {
-           
-             $contact=Contact::all()->first();
-           $page=Page::all();
-           $category=Category::all();
-            //      
-
-        $view->with('contact',$contact)
-             ->with('pages',$page) 
-             ->with('categories',$category) 
-        ;
-        }); 
+    
 
         View()->composer(['partials.latestnews'], function($view)
         {

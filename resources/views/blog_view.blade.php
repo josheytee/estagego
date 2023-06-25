@@ -51,7 +51,7 @@
 
 
             <div class="main_img">
-              <img src="{{asset('asset/images/blog_detail_main.png')}}" alt="image">
+              <img class="image-fluid max-width" src="{{asset('asset/images/blog_detail_main.png')}}" alt="image">
             </div>
             <div class="info">
               <p class="">{{$singleBlog->content}}</p>
@@ -69,7 +69,9 @@
                 <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Type specimen book. It has survived not only.</p></li>
               </ul> --}}
             </div>
-            <div class="two_img">
+            
+            {{-- two-images --}}
+            {{-- <div class="two_img">
               <div class="row">
                 <div class="col-md-6">
                   <img src="{{asset('asset/images/blog_sub_01.png')}}" alt="image">
@@ -78,7 +80,8 @@
                   <img src="{{asset('asset/images/blog_sub_02.png')}}" alt="image">
                 </div>
               </div>
-            </div>
+            </div> --}}
+
             {{-- <div class="info">
               <h3>Why we are best</h3>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic Lorem Ipsum is simply dummy text of the printing and typesettingindustry lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived.</p>
@@ -136,7 +139,17 @@
                   <img src="{{asset('asset/images/blog_d01.png')}}" alt="image">
                 </div> --}}
                 <div class="text">
-                  <span>30 min ago</span>
+                  <span>
+                    @php
+                
+                  $time = strtotime($comment->updated_at);
+                
+                  $date=date('F d, Y',$time);
+                  $postDuration  = Date('h\h i\ \m\i\n',$time);
+                 echo $postDuration.' '.'ago';
+
+                @endphp 
+                  </span>
                   <h4>{{$comment->name}}</h4>
                 </div>
               </div>

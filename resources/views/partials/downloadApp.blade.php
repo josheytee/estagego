@@ -8,19 +8,19 @@
                     <div class="col-md-6">
                         <div class="free_text">
                             <div class="section_title">
-                                <h2>{{$appDownload->title}}</h2>
-                                <p>{{$appDownload->content}}</p>
+                                <h2>{{$appdownload->title}}</h2>
+                                <p>{{$appdownload->content}}</p>
                             </div>
                             <ul class="app_btn">
                               <li>
                                 <a href="#">
                                   {{-- <img src=> --}}
-                                  <img src="{{asset('asset/images/'.$appDownload->image)}}" alt="image" >
+                                  <img src="{{asset('asset/images/'.$appdownload->image)}}" alt="image" >
                                 </a>
                               </li>
                               <li>
                                 <a href="#">
-                                  <img src="{{asset('asset/images/'.$appDownload->image2)}}" alt="image" >
+                                  <img src="{{asset('asset/images/'.$appdownload->image2)}}" alt="image" >
                                 </a>
                               </li>
                             </ul>

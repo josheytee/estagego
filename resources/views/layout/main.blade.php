@@ -87,6 +87,22 @@
                 </div>
                 
                 @endif
+                {{--  --}}
+                 @if(count($page->ServicePage))
+  
+                <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
+                <div class="sub_menu">
+                  
+                  <ul>
+                    @foreach ( $page->ServicePage as $dropdown)
+                   
+                    <li><a href="{{url('services/'.$dropdown->id)}}">{{$dropdown->title}}</a></li>
+                    @endforeach
+                  </ul>
+                  
+                </div>
+                
+                @endif
                  </li>
               @endforeach
               {{-- <li class="nav-item active">
@@ -168,8 +184,8 @@
               <div class="links">
                 <h3>Useful Links</h3>
                 <ul>
-                  @foreach ($pages as $page )
-                    <li><a href="index.html">{{$page->pageName}}</a></li>
+                  @foreach ($pageWithAbout as $page )
+                    <li><a href="{{url("$page->url")}}">{{$page->pageName}}</a></li>
                   
                   @endforeach
                   
@@ -196,12 +212,12 @@
                 <h3>Let’s Try Out</h3>
                 <ul class="app_btn">
                   <li>
-                    <a href="#">
+                    <a href="{{$appdownload->url}}">
                       <img src="{{asset('asset/images/appstore_blue.png')}}" alt="image">
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="{{$appdownload->url2}}">
                       <img src="{{asset('asset/images/googleplay_blue.png')}}" alt="image">
                     </a>
                   </li>

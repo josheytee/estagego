@@ -10,6 +10,8 @@ use App\Models\Testimonials;
 use App\Models\SubCategory;
 use App\Models\Category;
 use App\Models\Faq;
+use App\Models\AppDownload;
+use App\Models\Blog;
 class HomeController extends Controller
 {
     /**
@@ -29,6 +31,10 @@ class HomeController extends Controller
         $rightFeatures=Feature::wherebetween('id',[5,8])->get();
         $reviews=Testimonials::all();
         $featuredFaq=Faq::where('featured','=','true')->get();
+        $appdownload=AppDownload::all()->first();
+         $blogPost2=Blog::where('top_blog', '=','0')->paginate(3);
+        //  dd($blogPost2);
+        
         // testing relationship
     //    $r=SubCategory::with(['Faq'])->get();
     //    $c= Category::with(['SubCategory'])->get();
@@ -36,7 +42,7 @@ class HomeController extends Controller
     //    $x= Page::with(['Categories'])->get();
 
         // dd( $x);
-        return view('index', compact('home','home2','homePros','clients','clientHomeContent','leftFeatures','rightFeatures','reviews','featuredFaq'));
+        return view('index', compact('home','home2','homePros','clients','clientHomeContent','leftFeatures','rightFeatures','reviews','featuredFaq','appdownload','blogPost2'));
     }
 
     /**

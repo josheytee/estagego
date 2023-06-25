@@ -7,7 +7,7 @@
    <!-- Banner-Section-Start -->
     <section class="banner_section">
       {{-- {{dd($newsletterSuccess)}} --}}
-      {{-- @php --}}
+     
        @if (isset($_GET['newsletterSuccess']))
        <div class="container content-justify-center">
          {!! "<div class='alert alert-success'>".$_GET['newsletterSuccess']."</div>" !!} 
@@ -406,7 +406,7 @@
 	                <div class="step_text step3" data-aos="fade-right" data-aos-duration="1500">
 	                  <h4>It’s done, enjoy the app</h4>
                   	  <span>Need Help? Check our <a href="helpcenter.html">Help Center</a></span>
-                  	  <p>Get most amazing app experience, <a href="share.html">Explore and share</a> the EstateGO App</p>
+                  	  <p>Get most amazing app experience, <a href="#downloadApp">Explore and share</a> the EstateGO App</p>
 	                </div>
             	</div>
             </div>
@@ -668,17 +668,17 @@
                 	<!-- content -->
                     <div class="col-md-6">
                         <div class="free_text">
-                            <div class="section_title">
+                            <div class="section_title" id='downloadApp'>
                                 <h2>Let’s download free from apple and play store</h2>
                                 <p>Instant free download from apple and play store orem Ipsum is simply dummy text of the printing.
                                   and typese tting indus orem Ipsum has beenthe standard</p>
                             </div>
                             <ul class="app_btn">
                               <li>
-                                <a href="#">
+                                <a href="{{url($appdownload->url)}}">
                                   <img src="{{asset('asset/images/appstore_blue.png')}}" alt="image" >                                </a>                              </li>
                               <li>
-                                <a href="#">
+                                <a href="{{url($appdownload->url)}}">
                                   <img src="{{asset('asset/images/googleplay_blue.png')}}" alt="image" >                                </a>                              </li>
                             </ul>
                         </div>
@@ -698,67 +698,35 @@
     </section>
     <!-- Download-Free-App-section-end  -->
 
-    <!-- Story-Section-Start -->
-   <section class="row_am latest_story" id="blog">
-     <!-- container start -->
-      <div class="container">
-          <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-              <h2>Read latest <span>story</span></h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe standard dummy.</p>
-          </div>
-          <!-- row start -->
-          <div class="row">
-          	<!-- story -->
-            <div class="col-md-4">
-                <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
-                    <div class="story_img">
-                      <img src="{{asset('asset/images/banner1.png')}}" alt="image" >
-                      <span>45 min ago</span>                    </div>
-                    <div class="story_text">
-                        <h3>Cool features added!</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting 
-                          industry lorem Ipsum has.</p>
-                        <a href="#">READ MORE</a>
-                    </div>
-                </div>
-            </div>
+  
 
-            <!-- story -->
-            <div class="col-md-4">
-                <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
-                    <div class="story_img">
-                      <img src="{{asset('asset/images/banner.jpg')}}" alt="image" >
-                      <span>45 min ago</span>                    </div>
-                    <div class="story_text">
-                          <h3>Top rated app! Yupp.</h3>
-                        <p>Simply dummy text of the printing and typesetting industry lorem Ipsum has Lorem Ipsum is.</p>
-                        <a href="#">READ MORE</a>
-                    </div>
-                </div>
-            </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+@include('partials.latestnews')
 
-            <!-- story -->
-            <div class="col-md-4">
-                <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
-                    <div class="story_img">
-                      <img src="{{asset('asset/images/banner1.png')}}" alt="image" >
-                      <span>45 min ago</span>                    </div>
-                    <div class="story_text">
-                          <h3>Creative ideas on app.</h3>
-                        <p>Printing and typesetting industry lorem Ipsum has Lorem simply dummy text of the.</p>
-                        <a href="#">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <!-- row end -->
-      </div>
-      <!-- container end -->
-    </section>
-    <!-- Story-Section-end -->
 
     <!-- News-Letter-Section-Start -->
     @include('partials.newsletter')
     <!-- News-Letter-Section-end -->
+
+    
   
-@endsection
+
+  @endsection 

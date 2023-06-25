@@ -14,10 +14,15 @@ class PageFactory extends Factory
     public function definition()
     {
         return [
+            // 'pageName'=>'Contact',
+            // 'class1'=>$this->faker->word(),
+            // 'class2'=>$this->faker->word(),
+            // 'url'=>'testurl'
+
             'pageName'=>'Contact',
-            'class1'=>$this->faker->word(),
-            'class2'=>$this->faker->word(),
-            'url'=>'testurl'
+            'class1'=>'nav-item',
+            'class2'=>'nav-link',
+            'url'=>'contact'
 
 
         ];

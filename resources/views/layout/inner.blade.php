@@ -80,8 +80,29 @@
                 </div>
                 
                 @endif
+
+                 {{--  --}}
+                 @if(count($page->ServicePage))
+  
+                <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
+                <div class="sub_menu">
+                  
+                  <ul>
+                    @foreach ( $page->ServicePage as $dropdown)
+                   
+                    <li><a href="{{url('services/'.$dropdown->id)}}">{{$dropdown->title}}</a></li>
+                    @endforeach
+                  </ul>
+                  
+                </div>
+                
+                @endif
+                
                  </li>
+                 
+                 
               @endforeach
+              
               {{-- <li class="nav-item active">
                 <a class="nav-link" href="{{url('/')}}">Home</a>
               </li>
@@ -139,7 +160,7 @@
 
 
     <!-- Footer-Section start -->
-    <footer>
+     <footer>
       <div class="top_footer has_bg">
         <!-- container start -->
         <div class="container">
@@ -167,8 +188,8 @@
               <div class="links">
                 <h3>Useful Links</h3>
                 <ul>
-                  @foreach ($pages as $page )
-                    <li><a href="index.html">{{$page->pageName}}</a></li>
+                  @foreach ($pageWithAbout as $page )
+                    <li><a href="{{url("$page->url")}}">{{$page->pageName}}</a></li>
                   
                   @endforeach
                   
@@ -195,12 +216,12 @@
                 <h3>Let’s Try Out</h3>
                 <ul class="app_btn">
                   <li>
-                    <a href="#">
+                    <a href="{{$appdownload->url}}">
                       <img src="{{asset('asset/images/appstore_blue.png')}}" alt="image">
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="{{$appdownload->url2}}">
                       <img src="{{asset('asset/images/googleplay_blue.png')}}" alt="image">
                     </a>
                   </li>
@@ -242,17 +263,37 @@
 
     </footer>
     <!-- Footer-Section end -->
-    
+
+  <!-- VIDEO MODAL -->
+  <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button id="close-video" type="button" class="button btn btn-default text-right" data-dismiss="modal">
+            <i class="icofont-close-line-circled"></i>
+          </button>
+            <div class="modal-body">
+                <div id="video-container" class="video-container">
+                    <iframe id="youtubevideo" src="" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                </div>        
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div> 
+    </div>
+  </div>
+
+  <div class="purple_backdrop"></div>
+
   </div>
   <!-- Page-wrapper-End -->
 
   <!-- Jquery-js-Link -->
-    <script src="{{asset('asset/js/jquery.js')}}"></script>
+  <script src="{{asset('asset/js/jquery.js')}}"></script>
   <!-- owl-js-Link -->
   <script src="{{asset('asset/js/owl.carousel.min.js')}}"></script>
   <!-- bootstrap-js-Link -->
   <script src="{{asset('asset/js/bootstrap.min.js')}}"></script>
-   {{-- bootstrap select min-js --}}
+  {{-- bootstrap select min-js --}}
   <script src="{{asset('asset/js/bootstrap-select.min.js')}}"></script>
    {{-- bootstrap select country-min-js --}}
   <script src="{{asset('asset/js/bootstrap-select-country.min.js')}}"></script>
@@ -260,14 +301,10 @@
   <script src="{{asset('asset/js/aos.js')}}"></script>
   <!-- main-js-Link -->
   <script src="{{asset('asset/js/main.js')}}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  {{-- <script>
-    	$('.form-control').selectpicker({
-deselectAllText:'Deselect All',
 
-
-});
-    </script>> --}}
+  {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> --}}
 
 </body>
 

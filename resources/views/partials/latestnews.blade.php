@@ -12,8 +12,19 @@
                     <div class="col-md-4">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                             <div class="story_img">
-                            <img src="{{asset('asset/images/story01.png')}}" alt="image" >
-                            <span>45 min ago</span>
+                            <img src="{{asset('asset/images/'.$blog->image)}}" alt="image" >
+                            {{-- <img src="{{asset('asset/images/story01.png')}}" alt="image" > --}}
+                            <span>
+                                @php
+                
+                                    $time = strtotime($blog->updated_at);
+                                    
+                                    $date=date('F d, Y',$time);
+                                    $postDuration  = Date('h\h i\ \m\i\n',$time);
+                                    echo $postDuration.' '.'ago';
+
+                                @endphp 
+                            </span>
                             </div>
                             <div class="story_text">
                                 <h3>{{$blog->title}}</h3>
