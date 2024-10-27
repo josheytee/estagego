@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<configuration date="2023/08/01" author="e.World Technology Ltd.">
+<project id="{B5C7A834-3426-4989-B956-81B68DFE8162}" file="C:\Users\HP\Documents\PHPMaker\Projects\EstateGO.pmp" name="EstateGO" product="PHPMaker" version="10.0" datetime="2023/08/01 00:11:05" languagefolder="phplang" userlevel="">
+<table id="abouts" name="abouts" caption="abouts" userlevel="" priv="1"/>
+<table id="appdownloads" name="appdownloads" caption="appdownloads" userlevel="" priv="1"/>
+<table id="authors" name="authors" caption="authors" userlevel="" priv="1"/>
+<table id="blogs" name="blogs" caption="blogs" userlevel="" priv="1"/>
+<table id="categories" name="categories" caption="categories" userlevel="" priv="1"/>
+<table id="clients" name="clients" caption="clients" userlevel="" priv="1"/>
+<table id="comments" name="comments" caption="comments" userlevel="" priv="1"/>
+<table id="contact_messages" name="contact_messages" caption="contact messages" userlevel="" priv="1"/>
+<table id="contacts" name="contacts" caption="contacts" userlevel="" priv="1"/>
+<table id="failed_jobs" name="failed_jobs" caption="failed jobs" userlevel="" priv="1"/>
+<table id="faqs" name="faqs" caption="faqs" userlevel="" priv="1"/>
+<table id="features" name="features" caption="features" userlevel="" priv="1"/>
+<table id="homes" name="homes" caption="homes" userlevel="" priv="1"/>
+<table id="mail_lists" name="mail_lists" caption="mail lists" userlevel="" priv="1"/>
+<table id="migrations" name="migrations" caption="migrations" userlevel="" priv="1"/>
+<table id="pages" name="pages" caption="pages" userlevel="" priv="1"/>
+<table id="password_resets" name="password_resets" caption="password resets" userlevel="" priv="1"/>
+<table id="personal_access_tokens" name="personal_access_tokens" caption="personal access tokens" userlevel="" priv="1"/>
+<table id="service_pages" name="service_pages" caption="service pages" userlevel="" priv="1"/>
+<table id="services" name="services" caption="services" userlevel="" priv="1"/>
+<table id="sub_categories" name="sub_categories" caption="sub categories" userlevel="" priv="1"/>
+<table id="testimonials" name="testimonials" caption="testimonials" userlevel="" priv="1"/>
+<table id="users" name="users" caption="users" userlevel="" priv="1"/>
+</project></configuration>

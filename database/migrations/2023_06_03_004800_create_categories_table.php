@@ -17,14 +17,13 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category_name');
-             $table->unsignedInteger('page_id');
+            $table->unsignedInteger('page_id');
             $table->timestamps();
             $table->foreign('page_id')   
 				->references('id')
                 ->on('pages')
                 ->onDelete('cascade') 
-                ->onUpdate('cascade') ; 
-
+                ->onUpdate('cascade'); 
         });
     }
 

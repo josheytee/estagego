@@ -14,7 +14,8 @@ use App\Http\Controllers\MailListController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CommentController;
-
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\StaticController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +32,11 @@ use App\Http\Controllers\CommentController;
 //     return view('welcome');
 // });
 // home page
-Route::get('/' , [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // contact page
-Route::get('/contact' , [ContactController::class, 'index']);
-Route::post('/contact',[ContactController::class, 'store']);
+Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact', [ContactController::class, 'store']);
 
 // help_center page
 // Route::get('/help_center', [HelpController::class, 'index']);
@@ -57,13 +58,18 @@ Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog_view/{blog_view}', [BlogviewController::class, 'show']);
 
 // about
-Route::get('/about', [AboutController::class,'index']);
+Route::get('/about', [AboutController::class, 'index']);
+Route::get('/terms-of-use', [PageController::class, 'termsofuse'])->name('terms-of-use');
+Route::get('/privacy-policy', [PageController::class, 'privacypolicy'])->name('privacy-policy');
 // mail
 Route::resource('/mail', MailListController::class);
 
-// service    
-Route::get('/services', [ServiceController::class,'index'])->name('services');
+// service
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/services/{services}', [serviceController::class, 'show']);
 
 // comment
-Route::POST('/comment',[CommentController::class, 'store']);
+Route::POST('/comment', [CommentController::class, 'store']);
+Route::get('/static/terms', [StaticController::class, 'terms'])->name('static.terms');
+Route::get('/static/privacy', [StaticController::class, 'privacy'])->name('static.terms');
+Route::get('/static/about-us', [StaticController::class, 'terms'])->name('static.terms');
