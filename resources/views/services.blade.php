@@ -23,14 +23,6 @@
                 </a>
             </li>
           </ul>
-          <div class="search_bar">
-            <form action="">
-                <div class="form-group">
-                    <input type="text" placeholder="Search here" class="form-control">
-                    <button class="btn" type="submit"><i class="icofont-search-1"></i></button>
-                </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>
@@ -48,14 +40,14 @@
           	<!-- story -->
             @foreach($servicesPage as $services )
                 @foreach ($services->ServicePage as $service )
-                    
-               
+
+
             <div class="col-md-4 mt-5">
                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                     <div class="story_img">
                       <img src="{{asset('asset/images/'.$service->image)}}" alt="image" >
                       {{-- <img src="{{$service->image}}" alt="image" > --}}
-                      
+
                     </div>
                     <div class="story_text">
                         <h3>{{$service->title}}</h3>

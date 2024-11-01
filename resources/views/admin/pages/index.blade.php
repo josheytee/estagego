@@ -52,7 +52,7 @@ $config = [
         <td>{{ $about->created_at }}</td>
         <td>{{ $about->updated_at }}</td>
         <td>
-            <a href=" {{ route('pages.edit', $about) }}" class="btn btn-info">
+            <a href=" {{ route('admin.pages.edit', $about) }}" class="btn btn-info">
                 <i class="fa fa-lg fa-fw fa-pen"></i>
             </a>
         </td>

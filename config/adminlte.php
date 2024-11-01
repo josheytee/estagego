@@ -351,6 +351,36 @@ return [
                 ],
             ],
         ],
+        ['header' => 'Blog'],
+        [
+            'text' => 'Authors',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'all',
+                    'url' => 'admin/authors',
+                ],
+                [
+                    'text' => 'create',
+                    'route' => 'admin.authors.create',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Blogs',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'all',
+                    'route' => 'admin.blogs.index',
+                    // 'url' => 'admin/blogs',
+                ],
+                [
+                    'text' => 'create',
+                    'route' => 'admin.blogs.create',
+                ],
+            ],
+        ],
 
         // [
         //     'text' => 'multilevel',

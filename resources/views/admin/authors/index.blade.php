@@ -2,21 +2,24 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Service Pages')
+@section('subtitle', 'Blogs')
 @section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Service Pages')
+@section('content_header_subtitle', 'Blogs')
 
 {{-- Content body: main page content --}}
 
 @section('content_body')
 
+
 {{-- Setup data for datatables --}}
 @php
+
 $heads = [
 'ID',
+'First Name',
+'Last Name',
 'Image',
-'Title',
-['label' => 'Content', 'width' => 15],
+'Company',
 'Created',
 'Updated',
 ['label' => 'Actions', 'no-export' => true, 'width' => 10],
@@ -33,7 +36,7 @@ $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" titl
 </button>';
 
 $config = [
-'data' => [$subs],
+'data' => [$authors],
 'order' => [[1, 'asc']],
 'columns' => [null, null, null, ['orderable' => false]],
 ];
@@ -41,18 +44,17 @@ $config = [
 
 {{-- Minimal example / fill data using the component slot --}}
 <x-adminlte-datatable id="table1" :heads="$heads">
-    @foreach ($subs as $sub)
+    @foreach ($authors as $author)
     <tr>
-        <td>{{ $sub->id }}</td>
+        <td>{{ $author->id }}</td>
+        <td>{{ $author->first_name}}</td>
+        <td>{{ $author->last_name }}</td>
+        <td>{{ $author->image }}</td>
+        <td>{{ $author->company }}</td>
+        <td>{{ $author->created_at }}</td>
+        <td>{{ $author->updated_at }}</td>
         <td>
-            {{-- <img src="{{ $sub->image }}" alt="" srcset=""> --}}
-        </td>
-        <td>{{ $sub->title }}</td>
-        <td>{{ $sub->content }}</td>
-        <td>{{ $sub->created_at }}</td>
-        <td>{{ $sub->updated_at }}</td>
-        <td>
-            <a href=" {{ route('admin.subs.edit', $sub) }}" class="btn btn-info">
+            <a href=" {{ route('admin.authors.edit', $author) }}" class="btn btn-info">
                 <i class="fa fa-lg fa-fw fa-pen"></i>
             </a>
         </td>

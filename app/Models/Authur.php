@@ -9,10 +9,11 @@ use App\Models\Blog;
 class Authur extends Model
 {
     use HasFactory;
-    protected $table='authors';
-    protected $fillable=['first_name','last_name','image'];
+    protected $table = 'authors';
+    protected $fillable = ['first_name', 'last_name', 'image', 'company'];
 
-    public function Blog(){
-        return $this->hasMany(Blog::class,'author_id','id');
+    public function Blog()
+    {
+        return $this->hasMany(Blog::class, 'author_id', 'id');
     }
 }

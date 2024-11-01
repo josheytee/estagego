@@ -2,9 +2,9 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Service Pages')
+@section('subtitle', 'Blogs')
 @section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Service Pages')
+@section('content_header_subtitle', 'Blogs')
 
 {{-- Content body: main page content --}}
 
@@ -14,9 +14,14 @@
 @php
 $heads = [
 'ID',
-'Image',
+'Author',
 'Title',
-['label' => 'Content', 'width' => 15],
+'Caption',
+'Image',
+['label' => 'Content', 'width' => '30'],
+'Date',
+'Tags',
+'Top Blog',
 'Created',
 'Updated',
 ['label' => 'Actions', 'no-export' => true, 'width' => 10],
@@ -33,7 +38,7 @@ $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" titl
 </button>';
 
 $config = [
-'data' => [$subs],
+'data' => [$blogs],
 'order' => [[1, 'asc']],
 'columns' => [null, null, null, ['orderable' => false]],
 ];
@@ -41,18 +46,21 @@ $config = [
 
 {{-- Minimal example / fill data using the component slot --}}
 <x-adminlte-datatable id="table1" :heads="$heads">
-    @foreach ($subs as $sub)
+    @foreach ($blogs as $blog)
     <tr>
-        <td>{{ $sub->id }}</td>
+        <td>{{ $blog->id }}</td>
+        <td>{{ $blog->author_id}}</td>
+        <td>{{ $blog->title }}</td>
+        <td>{{ $blog->caption }}</td>
+        <td>{{ $blog->image }}</td>
+        <td>{{ $blog->truncatedContent(30) }}</td>
+        <td>{{ $blog->date }}</td>
+        <td>{{ $blog->tags }}</td>
+        <td>{{ $blog->top_blog }}</td>
+        <td>{{ $blog->created_at }}</td>
+        <td>{{ $blog->updated_at }}</td>
         <td>
-            {{-- <img src="{{ $sub->image }}" alt="" srcset=""> --}}
-        </td>
-        <td>{{ $sub->title }}</td>
-        <td>{{ $sub->content }}</td>
-        <td>{{ $sub->created_at }}</td>
-        <td>{{ $sub->updated_at }}</td>
-        <td>
-            <a href=" {{ route('admin.subs.edit', $sub) }}" class="btn btn-info">
+            <a href=" {{ route('admin.blogs.edit', $blog) }}" class="btn btn-info">
                 <i class="fa fa-lg fa-fw fa-pen"></i>
             </a>
         </td>

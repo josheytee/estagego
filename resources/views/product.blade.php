@@ -20,14 +20,6 @@
                 </a>
             </li>
           </ul>
-          <div class="search_bar">
-            <form action="">
-                <div class="form-group">
-                    <input type="text" placeholder="Search here" class="form-control">
-                    <button class="btn" type="submit"><i class="icofont-search-1"></i></button>
-                </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>
