@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layout.admin')
 
 {{-- Customize layout sections --}}
 
@@ -11,15 +11,24 @@
 @section('content_body')
 
     {{-- Setup data for datatables --}}
+
+id
+name
+email
+phone
+website
+comment
+show
     @php
         $heads = [
             'S/N',
-            'Service',
+            // 'Service',
             'Name',
-            'Phone Number',
             'Email',
+            'Phone',
+            'Website',
             ['label' => 'Comment', 'width' => 30],
-            'Approve',
+            'Show',
             ['label' => 'Actions', 'no-export' => true, 'width' => 10],
         ];
 
@@ -45,25 +54,25 @@
         @foreach ($comments as $comment)
             <tr>
                 <td>{{ $comment->id }}</td>
-                <td>{{ $comment->serivce->name }}</td>
-                <td>{{ $comment->first_name . ' ' . $comment->last_name }}</td>
+                <td>{{ $comment->name }}</td>
                 <td>{{ $comment->phone }}</td>
                 <td>{{ $comment->email }}</td>
+                <td>{{ $comment->website }}</td>
                 <td>{{ $comment->comment }}</td>
                 <td>
-                    @if ($comment->approved)
+                    @if ($comment->show)
                         <span class="badge badge-success">Approved</span>
                     @else
                         <span class="badge badge-danger">Banned</span>
                     @endif
                 </td>
                 <td>
-                    @if ($comment->approved)
-                        <a href=" {{ route('comment.approve', $comment) }}" class="btn btn-danger">
+                    @if ($comment->show)
+                        <a href="" class="btn btn-danger">
                             <i class="fas fa-ban"></i>
                         </a>
                     @else
-                        <a href=" {{ route('comment.approve', $comment) }}" class="btn btn-success">
+                        <a href="" class="btn btn-success">
                             <i class="fas fa-thumbs-up"></i>
                         </a>
                     @endif

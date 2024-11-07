@@ -2,9 +2,9 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Pages')
-@section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Pages')
+@section('subtitle', 'Features')
+@section('content_header_title', 'Pages')
+@section('content_header_subtitle', 'Features')
 
 {{-- Content body: main page content --}}
 
@@ -14,10 +14,8 @@
 @php
 $heads = [
 'ID',
-'Name',
-'Class1',
-['label' => 'Class2', 'width' => 15],
-'Url',
+'Title',
+'Content',
 'Created',
 'Updated',
 ['label' => 'Actions', 'no-export' => true, 'width' => 10],
@@ -34,7 +32,7 @@ $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" titl
 </button>';
 
 $config = [
-'data' => [$pages],
+'data' => [$features],
 'order' => [[1, 'asc']],
 'columns' => [null, null, null, ['orderable' => false]],
 ];
@@ -42,25 +40,17 @@ $config = [
 
 {{-- Minimal example / fill data using the component slot --}}
 <x-adminlte-datatable id="table1" :heads="$heads">
-    @foreach ($pages as $page)
+    @foreach ($features as $feature)
     <tr>
-        <td>{{ $page->id }}</td>
-        <td>{{ $page->pageName }}</td>
-        <td>{{ $page->class1 }}</td>
-        <td>{{ $page->class2 }}</td>
-        <td>{{ $page->url }}</td>
-        <td>{{ $page->created_at }}</td>
-        <td>{{ $page->updated_at }}</td>
+        <td>{{ $feature->id }}</td>
+        <td>{{ $feature->title }}</td>
+        <td>{{ $feature->content }}</td>
+        <td>{{ $feature->created_at }}</td>
+        <td>{{ $feature->updated_at }}</td>
         <td>
-            <div class="d-flex">
-
-                <a href=" {{ route('admin.pages.show', $page) }}" class="btn btn-info">
-                    <i class="fa fa-lg fa-fw fa-eye"></i>
-                </a>
-                <a href=" {{ route('admin.pages.edit', $page) }}" class="btn btn-info">
-                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                </a>
-            </div>
+            <a href=" {{ route('admin.features.edit', $feature) }}" class="btn btn-info">
+                <i class="fa fa-lg fa-fw fa-pen"></i>
+            </a>
         </td>
 
     </tr>

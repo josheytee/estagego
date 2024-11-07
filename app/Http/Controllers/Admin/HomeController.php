@@ -5,52 +5,43 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use App\Models\About;
+use App\Models\Home;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class HomeController extends Controller
 {
 
-    public function index(Request $request): View
+    public function index(Request $request, Home $home): View
     {
-        $pages = Page::all();
-        return view('admin.pages.index', compact('pages'));
+        $homes = Home::all();
+        return view('admin.pages.homes.index', compact('homes'));
     }
 
-    public function subs(Request $request): View
-    {
-        $pages = Page::all();
-        return view('admin.pages.index', compact('pages'));
-    }
 
     public function create(Request $request)
     {
         // return view('admin.contacts.create');
     }
 
-    public function show(Request $request,  $page)
+    public function show(Request $request, About $scheduleInterview)
     {
-        return redirect('admin.homes.index');
+        // return view('scheduleInterview.show', compact('scheduleInterview'));
     }
 
-    public function edit(Request $request, $page)
+    public function edit(Request $request, Home $home)
     {
-        // dd($page);
-        $templates = ['Home' => 'home'];
-
-        return view('admin.pages.' . $templates[$page] . '.edit', compact('page'));
-
-        return view('admin.pages.edit', compact('page'));
+        return view('admin.pages.homes.edit', compact('home'));
     }
 
-    public function update(Request $request, About $site)
+    public function update(Request $request, Home $home)
     {
-        // dd($request->validated());
-        $site->update($request->all());
+        // dd($request->all());
+        $home->update($request->all());
 
         // $request->session()->flash('scheduleInterview.id', $scheduleInterview->id);
 
-        return redirect()->route('site.index');
+        return redirect()->route('admin.homes.index');
     }
 
     public function destroy(Request $request, About $testimonial)

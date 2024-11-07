@@ -3,8 +3,8 @@
 {{-- Customize layout sections --}}
 
 @section('subtitle', 'Pages')
-@section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Pages')
+@section('content_header_title', 'Pages')
+@section('content_header_subtitle', 'Homes')
 
 {{-- Content body: main page content --}}
 
@@ -14,10 +14,23 @@
 @php
 $heads = [
 'ID',
-'Name',
-'Class1',
-['label' => 'Class2', 'width' => 15],
-'Url',
+'Page Title',
+'H1',
+'H2_Orange',
+'H2',
+'Caption',
+'Caption2',
+'Appstore Url',
+'googleplay Url',
+'video Url',
+'Total users',
+'Total downloads',
+'Total household',
+'Total cities',
+'Total countries',
+'etatags',
+'keywords',
+'description',
 'Created',
 'Updated',
 ['label' => 'Actions', 'no-export' => true, 'width' => 10],
@@ -34,7 +47,7 @@ $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" titl
 </button>';
 
 $config = [
-'data' => [$pages],
+'data' => [$homes],
 'order' => [[1, 'asc']],
 'columns' => [null, null, null, ['orderable' => false]],
 ];
@@ -42,25 +55,32 @@ $config = [
 
 {{-- Minimal example / fill data using the component slot --}}
 <x-adminlte-datatable id="table1" :heads="$heads">
-    @foreach ($pages as $page)
+    @foreach ($homes as $sub)
     <tr>
-        <td>{{ $page->id }}</td>
-        <td>{{ $page->pageName }}</td>
-        <td>{{ $page->class1 }}</td>
-        <td>{{ $page->class2 }}</td>
-        <td>{{ $page->url }}</td>
-        <td>{{ $page->created_at }}</td>
-        <td>{{ $page->updated_at }}</td>
+        <td>{{ $sub->id }}</td>
+        <td>{{ $sub->page_title }}</td>
+        <td>{{ $sub->h1 }}</td>
+        <td>{{ $sub->h2_orange }}</td>
+        <td>{{ $sub->h2 }}</td>
+        <td>{{ $sub->caption }}</td>
+        <td>{{ $sub->caption2 }}</td>
+        <td>{{ $sub->appsptore_url }}</td>
+        <td>{{ $sub->googleplay_url }}</td>
+        <td>{{ $sub->video_url }}</td>
+        <td>{{ $sub->total_users }}</td>
+        <td>{{ $sub->total_downloads }}</td>
+        <td>{{ $sub->total_household }}</td>
+        <td>{{ $sub->total_cities }}</td>
+        <td>{{ $sub->total_countries }}</td>
+        <td>{{ $sub->metatages }}</td>
+        <td>{{ $sub->keywords }}</td>
+        <td>{{ $sub->description }}</td>
+        <td>{{ $sub->created_at }}</td>
+        <td>{{ $sub->updated_at }}</td>
         <td>
-            <div class="d-flex">
-
-                <a href=" {{ route('admin.pages.show', $page) }}" class="btn btn-info">
-                    <i class="fa fa-lg fa-fw fa-eye"></i>
-                </a>
-                <a href=" {{ route('admin.pages.edit', $page) }}" class="btn btn-info">
-                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                </a>
-            </div>
+            <a href=" {{ route('admin.homes.edit', $sub) }}" class="btn btn-info">
+                <i class="fa fa-lg fa-fw fa-pen"></i>
+            </a>
         </td>
 
     </tr>

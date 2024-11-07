@@ -13,7 +13,6 @@ class CommentController extends Controller
     public function index(Request $request): View
     {
         $comments = Comment::all();
-        // dd(Comment::find(1)->service);
         return view('admin.comments.index', compact('comments'));
     }
 

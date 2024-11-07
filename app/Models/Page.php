@@ -8,15 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Page extends Model
 {
     use HasFactory;
-    protected $table='pages';
-protected $fillable=['pageName','class1','class2','url'];
+    protected $table = 'pages';
+    protected $fillable = ['pageName', 'class1', 'class2', 'url'];
 
-public function Categories(){
-return $this->hasMany(Category::class,'page_id','id');
-}
+    public function Categories()
+    {
+        return $this->hasMany(Category::class, 'page_id', 'id');
+    }
 
-public function ServicePage(){
+    public function ServicePage()
+    {
 
-   return $this->hasMany(ServicePage::class,'page_id','id'); 
-}
+        return $this->hasMany(ServicePage::class, 'page_id', 'id');
+    }
+    // public function getRouteKeyName()
+    // {
+    //     return 'pageName';
+    // }
 }

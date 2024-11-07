@@ -381,6 +381,21 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'Comments',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'all',
+                    'route' => 'admin.comments.index',
+                    // 'url' => 'admin/comments',
+                ],
+                [
+                    'text' => 'create',
+                    'route' => 'admin.comments.create',
+                ],
+            ],
+        ],
 
         // [
         //     'text' => 'multilevel',

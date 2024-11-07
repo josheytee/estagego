@@ -32,12 +32,15 @@ class AdminLiteServiceProvider extends ServiceProvider
             $event->menu->add('Pages Content');
             $pages = Page::all();
             foreach ($pages as $page) {
-                // dd($page);
                 $event->menu->add([
                     'text' => $page->pageName,
-                    'url' => 'admin/page/' . $page->url,
+                    'url' => 'admin/' . \Str::slug($page->pageName) . 's',
                 ]);
             }
+            $event->menu->add([
+                'text' => 'Testimonials',
+                'url' => 'admin/testimonials',
+            ]);
         });
     }
 }

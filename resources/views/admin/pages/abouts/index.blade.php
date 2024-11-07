@@ -2,22 +2,24 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Pages')
-@section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Pages')
+@section('subtitle', 'Abouts')
+@section('content_header_title', 'Pages')
+@section('content_header_subtitle', 'Abouts')
 
 {{-- Content body: main page content --}}
 
 @section('content_body')
 
 {{-- Setup data for datatables --}}
+
+
 @php
 $heads = [
 'ID',
-'Name',
-'Class1',
-['label' => 'Class2', 'width' => 15],
-'Url',
+'Title1',
+'Content1',
+['label' => 'Title2', 'width' => 30],
+'Content2',
 'Created',
 'Updated',
 ['label' => 'Actions', 'no-export' => true, 'width' => 10],
@@ -34,7 +36,7 @@ $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" titl
 </button>';
 
 $config = [
-'data' => [$pages],
+'data' => [$abouts],
 'order' => [[1, 'asc']],
 'columns' => [null, null, null, ['orderable' => false]],
 ];
@@ -42,27 +44,20 @@ $config = [
 
 {{-- Minimal example / fill data using the component slot --}}
 <x-adminlte-datatable id="table1" :heads="$heads">
-    @foreach ($pages as $page)
+    @foreach ($abouts as $about)
     <tr>
-        <td>{{ $page->id }}</td>
-        <td>{{ $page->pageName }}</td>
-        <td>{{ $page->class1 }}</td>
-        <td>{{ $page->class2 }}</td>
-        <td>{{ $page->url }}</td>
-        <td>{{ $page->created_at }}</td>
-        <td>{{ $page->updated_at }}</td>
+        <td>{{ $about->id }}</td>
+        <td>{{ $about->title1 }}</td>
+        <td>{{ $about->content1 }}</td>
+        <td>{{ $about->title2 }}</td>
+        <td>{{ $about->content2 }}</td>
+        <td>{{ $about->created_at }}</td>
+        <td>{{ $about->updated_at }}</td>
         <td>
-            <div class="d-flex">
-
-                <a href=" {{ route('admin.pages.show', $page) }}" class="btn btn-info">
-                    <i class="fa fa-lg fa-fw fa-eye"></i>
-                </a>
-                <a href=" {{ route('admin.pages.edit', $page) }}" class="btn btn-info">
-                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                </a>
-            </div>
+            <a href=" {{ route('admin.abouts.edit', $about) }}" class="btn btn-info">
+                <i class="fa fa-lg fa-fw fa-pen"></i>
+            </a>
         </td>
-
     </tr>
     @endforeach
     {{-- <input type="hidden" id="csrf" value={{ csrf_token() }}> --}}

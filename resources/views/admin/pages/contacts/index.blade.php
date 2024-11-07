@@ -3,8 +3,8 @@
 {{-- Customize layout sections --}}
 
 @section('subtitle', 'Pages')
-@section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Pages')
+@section('content_header_title', 'Pages')
+@section('content_header_subtitle', 'Contacts')
 
 {{-- Content body: main page content --}}
 
@@ -14,10 +14,15 @@
 @php
 $heads = [
 'ID',
-'Name',
-'Class1',
-['label' => 'Class2', 'width' => 15],
-'Url',
+'Address',
+'Email',
+['label' => 'Phone Number', 'width' => 30],
+'Website',
+['label' => 'Mobile', 'width' => 30],
+'Facebook Url',
+'Twitter Url',
+'Linkedin Url',
+'Tiktok Url',
 'Created',
 'Updated',
 ['label' => 'Actions', 'no-export' => true, 'width' => 10],
@@ -34,7 +39,7 @@ $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" titl
 </button>';
 
 $config = [
-'data' => [$pages],
+'data' => [$contacts],
 'order' => [[1, 'asc']],
 'columns' => [null, null, null, ['orderable' => false]],
 ];
@@ -42,25 +47,24 @@ $config = [
 
 {{-- Minimal example / fill data using the component slot --}}
 <x-adminlte-datatable id="table1" :heads="$heads">
-    @foreach ($pages as $page)
+    @foreach ($contacts as $contact)
     <tr>
-        <td>{{ $page->id }}</td>
-        <td>{{ $page->pageName }}</td>
-        <td>{{ $page->class1 }}</td>
-        <td>{{ $page->class2 }}</td>
-        <td>{{ $page->url }}</td>
-        <td>{{ $page->created_at }}</td>
-        <td>{{ $page->updated_at }}</td>
+        <td>{{ $contact->id }}</td>
+        <td>{{ $contact->address }}</td>
+        <td>{{ $contact->email }}</td>
+        <td>{{ $contact->phone_number }}</td>
+        <td>{{ $contact->website }}</td>
+        <td>{{ $contact->mobile }}</td>
+        <td>{{ $contact->facebook_url }}</td>
+        <td>{{ $contact->twitter_url }}</td>
+        <td>{{ $contact->linkedin_url }}</td>
+        <td>{{ $contact->tiktok_url }}</td>
+        <td>{{ $contact->created_at }}</td>
+        <td>{{ $contact->updated_at }}</td>
         <td>
-            <div class="d-flex">
-
-                <a href=" {{ route('admin.pages.show', $page) }}" class="btn btn-info">
-                    <i class="fa fa-lg fa-fw fa-eye"></i>
-                </a>
-                <a href=" {{ route('admin.pages.edit', $page) }}" class="btn btn-info">
-                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                </a>
-            </div>
+            <a href=" {{ route('admin.contacts.edit', $contact) }}" class="btn btn-info">
+                <i class="fa fa-lg fa-fw fa-pen"></i>
+            </a>
         </td>
 
     </tr>

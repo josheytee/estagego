@@ -1,12 +1,19 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\AuthorController;
+use App\Http\Controllers\Admin\CMSController;
 use App\Http\Controllers\Admin\CommentController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SubPageController;
 use App\Models\Comment;
+use App\Models\Feature;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/admin-auth.php';
@@ -17,14 +24,22 @@ Route::group(['middleware' => ['auth:admin']], function () {
 
         Route::get('/dashboard', function () {
             $comments =  Comment::where('show', 0)->count();
-            // $contacts =  Contact::where('acknowledged', 0)->count();
             return view('admin.dashboard', compact('comments'));
         })->middleware('verified')->name('dashboard');
 
         Route::resource('blogs', BlogController::class);
+        Route::resource('homes', HomeController::class)->names('homes');
+        Route::resource('features', FeatureController::class)->names('features');
+        Route::resource('contacts', ContactController::class)->names('contacts');
+        Route::resource('abouts', AboutController::class)->names('abouts');
+        Route::resource('testimonials', TestimonialController::class)->names('testimonials');
         Route::resource('authors', AuthorController::class);
         Route::resource('pages/subs', SubPageController::class)->names('subs');
-        Route::resource('pages', PageController::class);
+
+        Route::put('/pages/{slug}/edit/{id}', [CMSController::class, 'home'])->name('pages.edit.home');
+        Route::resource('pages', PageController::class, ['except' => [
+            // 'show'
+        ]]);
         Route::resource('services', ServiceController::class);
         // Route::get('/contacts/{contact}/acknowledged', [ContactController::class, 'acknowledge'])->name('contact.acknowledge');
         Route::resource('comments', CommentController::class);

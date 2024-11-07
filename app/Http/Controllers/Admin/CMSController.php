@@ -5,17 +5,24 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use App\Models\About;
+use App\Models\Home;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class CMSController extends Controller
 {
 
-    public function index(Request $request): View
+    public function home(Request $request, Home $home): View
     {
-        $pages = Page::all();
-        return view('admin.pages.index', compact('pages'));
+        dd($request->all());
     }
+
+    public function editHome(Request $request, Home $home): View
+    {
+        return view('admin.pages.home.edit', compact('home'));
+    }
+
+
 
     public function subs(Request $request): View
     {
@@ -28,18 +35,13 @@ class PageController extends Controller
         // return view('admin.contacts.create');
     }
 
-    public function show(Request $request,  $page)
+    public function show(Request $request, About $scheduleInterview)
     {
-        return redirect('admin.homes.index');
+        // return view('scheduleInterview.show', compact('scheduleInterview'));
     }
 
-    public function edit(Request $request, $page)
+    public function edit(Request $request, Page $page)
     {
-        // dd($page);
-        $templates = ['Home' => 'home'];
-
-        return view('admin.pages.' . $templates[$page] . '.edit', compact('page'));
-
         return view('admin.pages.edit', compact('page'));
     }
 
