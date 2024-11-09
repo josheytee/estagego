@@ -351,6 +351,21 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'FAQs',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'all',
+                    'route' => 'admin.faqs.index',
+                    // 'url' => 'admin/comments',
+                ],
+                [
+                    'text' => 'create',
+                    'route' => 'admin.faqs.create',
+                ],
+            ],
+        ],
         ['header' => 'Blog'],
         [
             'text' => 'Authors',
@@ -396,6 +411,7 @@ return [
                 ],
             ],
         ],
+
 
         // [
         //     'text' => 'multilevel',

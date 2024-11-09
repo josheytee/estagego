@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\CMSController;
@@ -33,6 +34,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
         Route::resource('contacts', ContactController::class)->names('contacts');
         Route::resource('abouts', AboutController::class)->names('abouts');
         Route::resource('testimonials', TestimonialController::class)->names('testimonials');
+        Route::resource('faqs', FaqController::class)->names('faqs');
         Route::resource('authors', AuthorController::class);
         Route::resource('pages/subs', SubPageController::class)->names('subs');
 
