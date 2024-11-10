@@ -222,22 +222,25 @@
           <h2> Meet our <span> experts </span></h2>
           <!-- p -->
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe standard dummy.
-          </p>
+            Discover the team behind our success. With expertise across various fields, our professionals are dedicated to delivering exceptional results. <br> Each expert brings a unique perspective and a wealth of knowledge to our work.
+        </p>
         </div>
         <div class="row">
             @foreach ($experts as $expert)
 
           <div class="col-md-6 col-lg-3"  data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
             <div class="experts_box">
-              <img src="{{asset('asset/images/experts_01.png')}}" alt="image">
+              {{-- <img src="{{asset('asset/images/experts_01.png')}}" alt="image"> --}}
+              @if (count($expert->images))
+                  <img src="{{asset('storage/experts/images/'.$expert->images[0]->path) }}" alt="{{$expert->images[0]->path}}">
+              @endif
               <div class="text">
                 <h3>{{$expert->name}}</h3>
                 <span>{{$expert->title}}</span>
                 <ul class="social_media">
                   {{-- <li><a href="#"><i class="icofont-facebook"></i></a></li> --}}
                   <li><a href="{{$expert->linkedin}}"><i class="icofont-linkedin"></i></a></li>
-                  <li><a href="{{$expert->instagram}}"><i class="icofont-instagram"></i></a></li>
+                  <li><a href="{{$expert->instagram}}"><i class="icofont-twitter"></i></a></li>
                 </ul>
               </div>
             </div>
