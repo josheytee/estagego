@@ -157,7 +157,7 @@
             <!-- about text -->
             <div class="about_text">
               <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                <!-- h2 --> 
+                <!-- h2 -->
                 <h2> {!! $about->title2 !!}</h2>
                 <!-- p -->
                 <p>
@@ -218,7 +218,7 @@
     <section class="row_am experts_team_section">
       <div class="container">
         <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-          <!-- h2 --> 
+          <!-- h2 -->
           <h2> Meet our <span> experts </span></h2>
           <!-- p -->
           <p>
@@ -226,6 +226,25 @@
           </p>
         </div>
         <div class="row">
+            @foreach ($experts as $expert)
+
+          <div class="col-md-6 col-lg-3"  data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+            <div class="experts_box">
+              <img src="{{asset('asset/images/experts_01.png')}}" alt="image">
+              <div class="text">
+                <h3>{{$expert->name}}</h3>
+                <span>{{$expert->title}}</span>
+                <ul class="social_media">
+                  {{-- <li><a href="#"><i class="icofont-facebook"></i></a></li> --}}
+                  <li><a href="{{$expert->linkedin}}"><i class="icofont-linkedin"></i></a></li>
+                  <li><a href="{{$expert->instagram}}"><i class="icofont-instagram"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          @endforeach
+
+          {{--
           <div class="col-md-6 col-lg-3"  data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
             <div class="experts_box">
               <img src="{{asset('asset/images/experts_01.png')}}" alt="image">
@@ -281,7 +300,7 @@
                 </ul>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </section>
@@ -295,7 +314,7 @@
             <span class="banner_shape1"> <img src="{{asset('asset/images/banner-shape1.png')}}" alt="image" > </span>
             <span class="banner_shape2"> <img src="{{asset('asset/images/banner-shape2.png')}}" alt="image" > </span>
             <span class="banner_shape3"> <img src="{{asset('asset/images/banner-shape3.png')}}" alt="image" > </span>
-        
+
               <div class="section_title">
                   <h2>Have any query about ?</h2>
                   <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe standard dummy.</p>

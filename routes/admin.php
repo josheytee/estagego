@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\CMSController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ExpertController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -35,7 +36,8 @@ Route::group(['middleware' => ['auth:admin']], function () {
         Route::resource('abouts', AboutController::class)->names('abouts');
         Route::resource('testimonials', TestimonialController::class)->names('testimonials');
         Route::resource('faqs', FaqController::class)->names('faqs');
-        Route::resource('authors', AuthorController::class);
+        Route::resource('experts', ExpertController::class)->names('experts');
+        Route::resource('authors', AuthorController::class)->names('authors');
         Route::resource('pages/subs', SubPageController::class)->names('subs');
 
         Route::put('/pages/{slug}/edit/{id}', [CMSController::class, 'home'])->name('pages.edit.home');
