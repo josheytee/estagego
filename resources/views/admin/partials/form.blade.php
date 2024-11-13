@@ -1,9 +1,9 @@
 @extends('layout.admin')
 
 {{-- Customize layout sections --}}
-@section('subtitle', 'Testimonials')
+{{-- @section('subtitle', 'Testimonials')
 @section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Testimonials')
+@section('content_header_subtitle', 'Testimonials') --}}
 
 {{-- Content body: main page content --}}
 @section('content_body')
@@ -44,7 +44,13 @@
 
             @else
                 @if ($value == 'image')
-                    <x-adminlte-input-file-krajee name="image"/>
+                    <x-adminlte-input-file-krajee name="image" igroup-size="sm" placeholder="Choose a file...">
+                        <x-slot name="prependSlot">
+                            <div class="input-group-text bg-lightblue">
+                                <i class="fas fa-upload"></i>
+                            </div>
+                        </x-slot>
+                    </x-adminlte-input-file-krajee>
                 @else
                     {{-- Simple string field --}}
                     <x-adminlte-input name="{{ $value }}" label="{{ ucfirst(str_replace('_', ' ', $value)) }}" placeholder="{{ ucfirst(str_replace('_', ' ', $value)) }}" label-class="text-lightblue"

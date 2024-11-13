@@ -44,18 +44,22 @@ $config = [
 
 {{-- Minimal example / fill data using the component slot --}}
 <x-adminlte-datatable id="table1" :heads="$heads">
-    @foreach ($testimonials as $contact)
+    @foreach ($testimonials as $testimonial)
     <tr>
-        <td>{{ $contact->id }}</td>
-        <td>{{ $contact->name }}</td>
-        <td>{{ $contact->position }}</td>
-        <td>{{ $contact->company }}</td>
-        <td>{{ $contact->content }}</td>
-        <td>{{ $contact->image }}</td>
-        <td>{{ $contact->created_at }}</td>
-        <td>{{ $contact->updated_at }}</td>
+        <td>{{ $testimonial->id }}</td>
+        <td>{{ $testimonial->name }}</td>
+        <td>{{ $testimonial->position }}</td>
+        <td>{{ $testimonial->company }}</td>
+        <td>{{ $testimonial->content }}</td>
+
         <td>
-            <a href=" {{ route('admin.testimonials.edit', $contact) }}" class="btn btn-info">
+            @if (count($testimonial->images))
+                <img src="{{asset('storage/testimonials/images/'.$testimonial->images[0]->path) }}" alt="{{$testimonial->images[0]->path}}" style="width: 100px; height: 50px; object-fit: cover;">
+            @endif
+        <td>{{ $testimonial->created_at }}</td>
+        <td>{{ $testimonial->updated_at }}</td>
+        <td>
+            <a href=" {{ route('admin.testimonials.edit', $testimonial) }}" class="btn btn-info">
                 <i class="fa fa-lg fa-fw fa-pen"></i>
             </a>
         </td>

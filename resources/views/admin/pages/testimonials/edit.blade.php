@@ -17,7 +17,7 @@
 @section('content_header_subtitle', 'Experts')
 
 @section('action')
-    {{ route('admin.experts.update', ['expert' => $model->id]) }}
+    {{ route('admin.testimonials.update', ['testimonial' => $model->id]) }}
 @stop
 
 @section('method')

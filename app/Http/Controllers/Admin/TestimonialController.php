@@ -29,13 +29,28 @@ class TestimonialController extends Controller
 
     public function edit(Request $request, Testimonials $testimonial)
     {
-        return view('admin.pages.testimonials.edit', compact('testimonial'));
+        $model = $testimonial;
+        return view('admin.pages.testimonials.edit', compact('model'));
     }
 
     public function update(Request $request, Testimonials $testimonial)
     {
         // dd($request->all());
         $testimonial->update($request->all());
+        $imagePath = "";
+        if ($request->hasFile('image')) {
+            $profileImage = $request->file('image');
+            if ($profileImage->isValid()) {
+                $ext = $profileImage->getClientOriginalExtension();
+                $pictureName = \Str::slug($testimonial->title) . '_' . \Str::slug($testimonial->name);
+                $pictureNameToSave = $pictureName . '.' . $ext;
+                $imagePath .= $profileImage->storeAs('', $pictureNameToSave, 'testimonials');
+
+                $testimonial->images()->create([
+                    'path' => $imagePath
+                ]);
+            }
+        }
 
         // $request->session()->flash('scheduleInterview.id', $scheduleInterview->id);
 
