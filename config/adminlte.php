@@ -324,18 +324,7 @@ return [
         [
             'text' => 'pages',
             'icon' => 'far fa-fw fa-file',
-            'submenu' => [
-                [
-                    // 'label' => 4,
-                    // 'label_color' => 'success',
-                    'text' => 'all',
-                    'url' => 'admin/pages',
-                ],
-                [
-                    'text' => 'create',
-                    'url' => 'admin/pages/subs/create',
-                ],
-            ],
+            'url' => 'admin/pages'
         ],
         [
             'text' => 'services',

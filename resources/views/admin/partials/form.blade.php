@@ -29,11 +29,11 @@
                                 <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                             </div>
                         </x-slot>
-                        {{ $expert->$key }}
+                        {{ $model->$key }}
                     </x-adminlte-textarea>
                 @else
                     <x-adminlte-input name="{{ $key }}" label="{{ $value['text'] ?? ucfirst($key) }}" placeholder="{{ $value['text'] ?? ucfirst($key) }}" label-class="text-lightblue"
-                        value="{{ $expert->$key }}" enable-old-support>
+                        value="{{ $model->$key }}" enable-old-support>
                         <x-slot name="prependSlot">
                             <div class="input-group-text">
                                 <i class="fas fa-user text-lightblue"></i>
@@ -48,7 +48,7 @@
                 @else
                     {{-- Simple string field --}}
                     <x-adminlte-input name="{{ $value }}" label="{{ ucfirst(str_replace('_', ' ', $value)) }}" placeholder="{{ ucfirst(str_replace('_', ' ', $value)) }}" label-class="text-lightblue"
-                        value="{{ $expert->$value }}" enable-old-support>
+                        value="{{ $model->$value }}" enable-old-support>
                         <x-slot name="prependSlot">
                             <div class="input-group-text">
                                 <i class="fas fa-user text-lightblue"></i>

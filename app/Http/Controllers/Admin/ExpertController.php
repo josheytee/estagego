@@ -20,8 +20,8 @@ class ExpertController extends Controller
 
     public function create(Request $request)
     {
-        $expert = new Expert();
-        return view('admin.pages.experts.create', compact('expert'));
+        $model = new Expert();
+        return view('admin.pages.experts.create', compact('model'));
     }
 
     public function show(Request $request, Expert $scheduleInterview)
@@ -31,7 +31,8 @@ class ExpertController extends Controller
 
     public function edit(Request $request, Expert $expert)
     {
-        return view('admin.pages.experts.edit', compact('expert'));
+        $model = $expert;
+        return view('admin.pages.experts.edit', compact('model'));
     }
 
     public function update(Request $request, Expert $expert)

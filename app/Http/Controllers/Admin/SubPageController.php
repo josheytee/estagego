@@ -20,7 +20,8 @@ class SubPageController extends Controller
 
     public function create(Request $request)
     {
-        // return view('admin.contacts.create');
+        $model = new ServicePage();
+        return view('admin.pages.subs.create', compact('model'));
     }
 
     public function show(Request $request, About $scheduleInterview)

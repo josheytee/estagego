@@ -7,7 +7,7 @@
 @section('content_header_subtitle', 'Experts')
 
 @section('action')
-    {{ route('admin.experts.update', $expert) }}
+    {{ route('admin.experts.update', ['expert' => $model->id]) }}
 @stop
 
 @section('method')
@@ -17,7 +17,7 @@
 
 @section('form_array')
 @php
-$formArray=[
+$formArray = [
     'image',
     'name',
     'title',

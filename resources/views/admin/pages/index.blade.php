@@ -52,7 +52,7 @@ $config = [
         <td>{{ $page->created_at }}</td>
         <td>{{ $page->updated_at }}</td>
         <td>
-            <div class="d-flex">
+            {{-- <div class="d-flex">
 
                 <a href=" {{ route('admin.pages.show', $page) }}" class="btn btn-info">
                     <i class="fa fa-lg fa-fw fa-eye"></i>
@@ -60,7 +60,7 @@ $config = [
                 <a href=" {{ route('admin.pages.edit', $page) }}" class="btn btn-info">
                     <i class="fa fa-lg fa-fw fa-pen"></i>
                 </a>
-            </div>
+            </div> --}}
         </td>
 
     </tr>

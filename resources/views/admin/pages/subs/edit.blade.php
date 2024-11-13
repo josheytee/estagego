@@ -9,7 +9,7 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <form action="{{ route('subs.update', $page) }}" method="post">
+    <form action="{{ route('admin.subs.update', $page) }}" method="post">
         @csrf
         @method('PUT')
 
