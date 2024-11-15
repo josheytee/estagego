@@ -45,6 +45,9 @@ $config = [
     <tr>
         <td>{{ $sub->id }}</td>
         <td>
+            @if (count($sub->images))
+                <img src="{{asset('storage/subs/images/'.$sub->images[0]->path) }}" alt="{{$sub->images[0]->path}}" style="width: 100px; height: 50px; object-fit: cover;">
+            @endif
             {{-- <img src="{{ $sub->image }}" alt="" srcset=""> --}}
         </td>
         <td>{{ $sub->title }}</td>

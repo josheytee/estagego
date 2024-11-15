@@ -1,13 +1,3 @@
-@extends('layout.admin')
-
-{{-- Customize layout sections --}}
-
-@section('subtitle', 'Testimonials')
-@section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Testimonials')
-
-{{-- Content body: main page content --}}
-
 @extends('admin.partials.form')
 
 {{-- Customize layout sections --}}

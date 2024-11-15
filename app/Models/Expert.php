@@ -9,7 +9,7 @@ class Expert extends Model
 {
     use HasFactory;
     protected $table = 'experts';
-    protected $fillable = ['name', 'title', 'linkedin', 'instagram', 'bio', 'image'];
+    protected $fillable = ['name', 'title', 'linkedin', 'instagram', 'bio'];
 
     public function images()
     {
