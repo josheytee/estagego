@@ -1,11 +1,11 @@
 @extends('admin.partials.form')
 
-@section('subtitle', 'Experts')
+@section('subtitle', 'Subs')
 @section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Experts')
+@section('content_header_subtitle', 'Subs')
 
 @section('action')
-    {{ route('admin.experts.store') }}
+    {{ route('admin.subs.store') }}
 @stop
 
 @section('form_array')
@@ -13,6 +13,6 @@
 $formArray=[
    'image',
 'title',
-['content'=>['type'=>'textarea']]];
+'content'=>['type'=>'textarea']]
 @endphp
 @stop

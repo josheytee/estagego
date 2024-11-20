@@ -13,7 +13,13 @@
         @csrf
         @method('PUT')
         {{-- image --}}
-
+        <x-adminlte-input-file-krajee name="image" igroup-size="sm" placeholder="Choose a file...">
+            <x-slot name="prependSlot">
+                <div class="input-group-text bg-lightblue">
+                    <i class="fas fa-upload"></i>
+                </div>
+            </x-slot>
+        </x-adminlte-input-file-krajee>
         {{-- tags --}}
 
         {{-- With prepend slot --}}

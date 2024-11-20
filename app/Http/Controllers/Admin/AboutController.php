@@ -42,20 +42,27 @@ class AboutController extends Controller
         return redirect()->route('admin.abouts.index');
     }
 
-    public function destroy(Request $request, About $testimonial)
+    public function destroy(Request $request, About $about)
     {
-        $testimonial->delete();
+        $about->delete();
 
-        return redirect()->route('site.index');
+        return redirect()->route('admin.abouts.index');
     }
 
     public function store(Request $request)
     {
         // dd($request->all() + ['proffession' => null]);
-        $testimonial = About::create($request->all());
-        if (isset($testimonial->id))
-            return redirect()->route('contacts.index');
+        $data  = $request->only(['title1', 'content1', 'title2', 'content2']);
+        $data['title1'] = htmlentities($data['title1']);
+        $data['content1'] = htmlentities($data['content1']);
+        $data['title2'] = htmlentities($data['title2']);
+        $data['content2'] = htmlentities($data['content2']);
+
+        $about = About::create($request->all());
+
+        if (isset($about->id))
+            return redirect()->route('admin.abouts.index');
         else
-            return redirect()->route('contacts.create');
+            return redirect()->route('admin.abouts.create');
     }
 }

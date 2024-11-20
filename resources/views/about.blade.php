@@ -45,7 +45,7 @@
                 make a type specien book. It has survived not only five centuries, but also the leap into electronic
                 typesetting.
               </p> --}}
-              {!! $about->content1 !!}
+              {!! htmlspecialchars_decode($about->content1) !!}
             </div>
           </div>
           <div class="col-lg-6">

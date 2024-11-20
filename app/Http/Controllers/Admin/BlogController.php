@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use App\Models\About;
 use App\Models\Blog;
+use App\Http\Traits\Upload;
 use Illuminate\Http\Request;
 use App\Models\Authur;
 
 class BlogController extends Controller
 {
+    use Upload;
 
     public function index(Request $request): View
     {
@@ -31,6 +33,7 @@ class BlogController extends Controller
 
     public function edit(Request $request, Blog $blog)
     {
+        // $model = $blog;
         return view('admin.blogs.edit', compact('blog'));
     }
 
@@ -39,14 +42,23 @@ class BlogController extends Controller
         // dd($request->validated());
         $blog->update($request->all());
 
-        $request->session()->flash('scheduleInterview.id', $blog->id);
-
+        if ($imagePath = $this->uploadImage($request, 'blogs', \Str::slug($blog->title) . '_' . \Str::slug($blog->id))) {
+            if ($image = $blog->images()->where('imageable_id', $blog->id)->first()) {
+                $image->update([
+                    'path' => $imagePath
+                ]);
+            } else {
+                $blog->images()->create([
+                    'path' => $imagePath
+                ]);
+            }
+        }
         return redirect()->route('admin.blogs.index');
     }
 
-    public function destroy(Request $request, About $testimonial)
+    public function destroy(Request $request, Blog $blog)
     {
-        $testimonial->delete();
+        $blog->delete();
 
         return redirect()->route('admin.blogs.index');
     }

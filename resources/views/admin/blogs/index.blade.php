@@ -52,7 +52,12 @@ $config = [
         <td>{{ $blog->author_id}}</td>
         <td>{{ $blog->title }}</td>
         <td>{{ $blog->caption }}</td>
-        <td>{{ $blog->image }}</td>
+        
+        <td>
+            @if (count($blog->images))
+            <img src="{{asset('storage/blogs/images/'.$blog->images[0]->path) }}" alt="{{$blog->images[0]->path}}" style="width: 100px; height: 50px; object-fit: cover;">
+            @endif
+        </td>
         <td>{{ $blog->truncatedContent(30) }}</td>
         <td>{{ $blog->date }}</td>
         <td>{{ $blog->tags }}</td>

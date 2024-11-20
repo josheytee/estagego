@@ -68,10 +68,17 @@ class SubPageController extends Controller
     public function store(Request $request)
     {
         // dd($request->all() + ['proffession' => null]);
-        $testimonial = About::create($request->all());
-        if (isset($testimonial->id))
-            return redirect()->route('contacts.index');
+        $service_page = ServicePage::create($request->all());
+        if ($imagePath = $this->uploadImage($request, 'subs', \Str::slug($service_page->title) . '_')) {
+            if ($image = $service_page->images()->where('imageable_id', $service_page->id)->first()) {
+                $service_page->images()->create([
+                    'path' => $imagePath
+                ]);
+            }
+        }
+        if (isset($service_page->id))
+            return redirect()->route('admin.experts.index');
         else
-            return redirect()->route('contacts.create');
+            return redirect()->route('admin.experts.create');
     }
 }

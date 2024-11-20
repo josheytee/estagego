@@ -2,19 +2,19 @@
    @extends('layout.main')
    @section('title','EstateGO:: All-in-one Property and Tenant Management System')
    @section('content')
-  
-  
+
+
    <!-- Banner-Section-Start -->
     <section class="banner_section">
       {{-- {{dd($newsletterSuccess)}} --}}
-     
+
        @if (isset($_GET['newsletterSuccess']))
        <div class="container content-justify-center">
-         {!! "<div class='alert alert-success'>".$_GET['newsletterSuccess']."</div>" !!} 
+         {!! "<div class='alert alert-success'>".$_GET['newsletterSuccess']."</div>" !!}
       </div>
       @endif
 
-     
+
       <!-- container start -->
       <div class="container">
         <!-- row start -->
@@ -94,17 +94,17 @@
         </div>
 
         <!-- logos slider start -->
-      
-          
-       
+
+
+
         <div class="company_logos" >
           <div id="company_slider" class="owl-carousel owl-theme">
-            
+
           @foreach ($clients as $client)
             <div class="item">
               <div class="logo">
                 <img src="{{$client->logo}}" alt="image" >
-              </div> 
+              </div>
             </div>
           @endforeach
             {{-- <div class="item">
@@ -144,7 +144,7 @@
             </div> --}}
           </div>
         </div>
-        
+
         <!-- logos slider end -->
       </div>
       <!-- container end -->
@@ -193,7 +193,7 @@
               </div>
             </div>
 
-           
+
             @endforeach
           </div>
           <!-- feature image -->
@@ -296,7 +296,7 @@
                 {!!$home2->h2!!}{!!$home2->h2_orange!!}
               {!!$home2->description!!}
               </div>
-              
+
               <ul class="design_block">
                 @foreach ( $homePros as $pros)
                 <li data-aos="fade-up" data-aos-duration="1500">
@@ -386,7 +386,7 @@
 	                <!-- text -->
 	                <div class="step_text step2" data-aos="fade-right" data-aos-duration="1500">
 	                  <h4>Create properties & Start Managing</h4>
-                  	 
+
                   	  <p>Create and manage properties no matter the property location.</p>
 	                </div>
             	</div>
@@ -420,7 +420,7 @@
     <!-- How-It-Workes-Section-end -->
 
     <!-- Testimonial-Section start -->
-    <section class="row_am testimonial_section"> 
+    <section class="row_am testimonial_section">
       <!-- container start -->
       <div class="container">
         <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
@@ -435,23 +435,23 @@
             @foreach ($reviews as $review)
             <div class="item">
               <div class="testimonial_slide_box">
-                <div class="rating">
+                {{-- <div class="rating">
                   <span><i class="icofont-star"></i></span>
                   <span><i class="icofont-star"></i></span>
                   <span><i class="icofont-star"></i></span>
                   <span><i class="icofont-star"></i></span>
-                  <span><i class="icofont-star"></i></span>               
-                </div>
-                  
+                  <span><i class="icofont-star"></i></span>
+                </div> --}}
+
                     <p class="review">
-                      {{$review->content}}            
+                      {{$review->content}}
                     </p>
                     <div class="testimonial_img">
-                      <img src="{{$review->image}}" alt="image" >                
+                      {{-- <img src="{{asset('storage/testimonials/images/'.$review->images[0]->path)}}" alt="image" > --}}
                     </div>
                     <h3>{{$review->name}}</h3>
                     <span class="designation">{{$review->position}}</span>
-                          
+
               </div>
             </div>
             @endforeach
@@ -494,14 +494,14 @@
 
           <!-- total review -->
           <div class="total_review">
-            <div class="rating">
+            {{-- <div class="rating">
               <span><i class="icofont-star"></i></span>
               <span><i class="icofont-star"></i></span>
               <span><i class="icofont-star"></i></span>
               <span><i class="icofont-star"></i></span>
               <span><i class="icofont-star"></i></span>
               <p>5.0 / 5.0</p>
-            </div>
+            </div> --}}
             <h3>{{$reviews->count()}}</h3>
             <a href="#">TOTAL USER REVIEWS <i class="icofont-arrow-right"></i></a>          </div>
 
@@ -610,7 +610,7 @@
       <div class="container-fluid">
         <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
             <!-- h2 -->
-            <h2>Beautifull <span>interface</span></h2>
+            <h2>Beautiful <span>interface</span></h2>
             <!-- p -->
             <p>
               Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe standard dummy.
@@ -662,7 +662,7 @@
     <section class="row_am free_app_section" id="getstarted">
     	<!-- container start -->
         <div class="container">
-            <div class="free_app_inner"> 
+            <div class="free_app_inner">
               	<!-- row start -->
                 <div class="row">
                 	<!-- content -->
@@ -698,27 +698,27 @@
     </section>
     <!-- Download-Free-App-section-end  -->
 
-  
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @include('partials.latestnews')
 
 
@@ -726,7 +726,7 @@
     @include('partials.newsletter')
     <!-- News-Letter-Section-end -->
 
-    
-  
 
-  @endsection 
+
+
+  @endsection

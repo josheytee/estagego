@@ -31,10 +31,10 @@
    <section class="row_am latest_story" id="blog">
      <!-- container start -->
       <div class="container " >
-          <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+          {{-- <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
               <h2>Our <span>Services</span></h2>
               <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe standard dummy.</p>
-          </div>
+          </div> --}}
           <!-- row start -->
           <div class="row mt-5" style="margin-top: 10%;">
           	<!-- story -->

@@ -25,4 +25,9 @@ class Blog extends Model
     {
         return (strlen($this->content) > $length) ? substr($this->content, 0, $length - strlen($dots)) . $dots : $this->content;
     }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

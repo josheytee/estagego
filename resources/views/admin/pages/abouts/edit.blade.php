@@ -9,10 +9,18 @@
 {{-- Content body: main page content --}}
 @php
     $formArray=[
-'title1',
-'content1',
-'title2',
-'content2',
+'title1'=>[
+    'type'=>"textarea"
+],
+'content1'=>[
+    'type'=>"textarea"
+],
+'title2'=>[
+    'type'=>"textarea"
+],
+'content2'=>[
+    'type'=>"textarea"
+],
     ]
 @endphp
 @section('content_body')
@@ -32,7 +40,7 @@
                     <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                 </div>
             </x-slot>
-            {{ $about->$key }} </x-adminlte-textarea>
+            {{ htmlspecialchars_decode($about->$key) }} </x-adminlte-textarea>
         @else
         <x-adminlte-input name="{{$key}}" label="{{ $value['text'] ?? ucfirst($key) }}" placeholder="{{ $value['text'] ?? ucfirst($key) }}" label-class="text-lightblue"
         value="{{ $about->$key }}" enable-old-support>
