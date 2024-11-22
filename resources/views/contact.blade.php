@@ -7,19 +7,19 @@
         <span class="banner_shape1"> <img src="{{asset('asset/images/banner-shape1.png')}}" alt="image" > </span>
         <span class="banner_shape2"> <img src="{{asset('asset/images/banner-shape2.png')}}" alt="image" > </span>
         <span class="banner_shape3"> <img src="{{asset('asset/images/banner-shape3.png')}}" alt="image" > </span>
-        
+
         <div class="bred_text">
           <h1>Contact us</h1>
           <p>If you have an query, please get in touch with us, we will revert back quickly.</p>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><span>»</span></li>
             <li><a href="contact.html">Contact us</a></li>
           </ul>
         </div>
       </div>
-    </div>  
-    
+    </div>
+
 
     <!-- Contact Us Section Start -->
     <section class="contact_page_section">
@@ -32,11 +32,11 @@
 
            @if (Session::has('msgSuccess'))
               <div class="container content-justify-center">
-                {!! "<div class='alert alert-success'>".Session::get('msgSuccess')."</div>" !!} 
+                {!! "<div class='alert alert-success'>".Session::get('msgSuccess')."</div>" !!}
               </div>
             @elseif (Session::has('msgError'))
             <div class="container content-justify-center">
-                {!! "<div class='alert alert-warnining'>".Session::get('msgError')."</div>" !!} 
+                {!! "<div class='alert alert-warnining'>".Session::get('msgError')."</div>" !!}
               </div>
             @endif
                 </div>
@@ -61,7 +61,7 @@
 
                         {{-- api --}}
                         {{-- <select class="form-control  countrypicker " name='country' >
-                         
+
                         </select> --}}
 
                     <select class="form-control" name='country'>
@@ -246,12 +246,12 @@
                       <option value="RO">Romania</option>
                       <option value="RU">Russian Federation</option>
                       <option value="RW">Rwanda</option>
-                      <option value="KN">Saint Kitts and Nevis</option> 
+                      <option value="KN">Saint Kitts and Nevis</option>
                       <option value="LC">Saint LUCIA</option>
                       <option value="VC">Saint Vincent and the Grenadines</option>
                       <option value="WS">Samoa</option>
                       <option value="SM">San Marino</option>
-                      <option value="ST">Sao Tome and Principe</option> 
+                      <option value="ST">Sao Tome and Principe</option>
                       <option value="SA">Saudi Arabia</option>
                       <option value="SN">Senegal</option>
                       <option value="SC">Seychelles</option>
@@ -309,11 +309,11 @@
                   </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Phone" 
+                        <input type="text" placeholder="Phone"
                         name='phone' class="form-control">
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Website" 
+                        <input type="text" placeholder="Website"
                         name='website' class="form-control">
                     </div>
                     <div class="form-group">

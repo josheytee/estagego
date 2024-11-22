@@ -14,7 +14,7 @@
           <h1>Need help? Check here</h1>
           <p>Check out some of the frequestly asked questions</p>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><span>»</span></li>
             <li><a href="reviews.html">Help Center - PROPERTY OWNERS</a></li>
           </ul>
@@ -26,7 +26,7 @@
      use App\Models\Faq;
      use App\Models\SubCategory;
 
-    
+
     $subcategoryName='GETTING STARTED';
      $faq_id=1;
      $faqs=Faq::where('subcategory_name','=',$subcategoryName)->where('category_id','=',$faq_id);
@@ -35,15 +35,15 @@
       //  $subCategories=SubCategory::with(['Faq'])->where('category_id','=',1)->where('subcategory_name','=','GETTING STARTED')->get();
 
        $faqs=Faq::get()->where('category_id','=',$ty)->where('subcategory_name','=','GETTING STARTED');
-    
+
     // $subCategories=DB::select("select f.* from faqs f join sub_categories s on s.category_id=f.category_id where f.category_id=$ty and f.subcategory_name='GETTING STARTED'");
-    
+
     }
      else{
            $faqs=Faq::get()->where('category_id','=',$ty)->where('subcategory_name','=',$_GET['subcategory']);
      }
-          
-     
+
+
     @endphp
 {{-- {{dd( $subCategories)}} --}}
 
@@ -53,22 +53,22 @@
       <div class="container">
       {{-- <div class="nav-item"> <a class="dark_btn" href="#">GETTING STARTED</a> &nbsp;  &nbsp;  &nbsp; <a class="dark_btn" href="#">MANAGING PROPERTIES</a> &nbsp;  &nbsp;  &nbsp; <a class="dark_btn" href="#">GETTING REPORTS</a>
       </div> --}}
-  
-     <div class="nav-item"> 
+
+     <div class="nav-item">
       @foreach ($categories as $category )
         @foreach ( $category->SubCategory as $subCategory )
         {{-- <a class="{{request()->is('tenant/1') ? 'active rounded-pill p-2' : ''}}" href="{{url($subCategory->url.'/'.$subCategory->category_id.'?subcategory='.$subCategory->subcategory_name)}}"> --}}
-          
+
           {{-- @php
             if($subCategoryName==$subCategory->subcategory_name){
               print ("<a class='active rounded-pill p-2' href=$subCategory->url.'/'.$subCategory->category_id.'?subcategory='.$subCategory->subcategory_name>");
             }
-            
+
           @endphp --}}
-          
+
 
           @if($subCategory->subcategory_name)
-          <a class='' href="{{url($subCategory->url.'/'.$subCategory->category_id."?subcategory=".$subCategory->subcategory_name)}}">  
+          <a class='' href="{{url($subCategory->url.'/'.$subCategory->category_id."?subcategory=".$subCategory->subcategory_name)}}">
           @endif
 
           @if($_GET['subcategory']=='GETTING STARTED')
@@ -80,7 +80,7 @@
 
           @if($_GET['subcategory']=='MANAGING PROPERTIES')
             @if($subCategory->subcategory_name == 'MANAGING PROPERTIES')
-            <a class='active rounded-pill p-2' href="{{url($subCategory->url.'/'.$subCategory->category_id."?subcategory=".$subCategory->subcategory_name)}}"> 
+            <a class='active rounded-pill p-2' href="{{url($subCategory->url.'/'.$subCategory->category_id."?subcategory=".$subCategory->subcategory_name)}}">
             @endif
           @endif
 
@@ -97,12 +97,12 @@
         @endforeach
       @endforeach
     </div>
-  
+
         <!-- faq data -->
         <div class="faq_panel">
           <div class="accordion" id="accordionExample">
 
-                    
+
             {{-- @foreach ( $subCategories as $subcategory)  --}}
                 @foreach ($faqs as $faq)
                 {{-- {{dd($faq->question)}} --}}
@@ -118,11 +118,11 @@
                     <p>{{$faq->answer}}</p>
                     </div>
                 </div>
-                </div>    
-                @endforeach          
+                </div>
+                @endforeach
             {{-- @endforeach --}}
-            
-{{-- 
+
+{{--
             <div class="card" data-aos="fade-up" >
               <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
@@ -246,6 +246,6 @@
     @include('partials.downloadApp')
     <!-- Download-Free-App-section-end  -->
 
-    
+
 
     @endsection

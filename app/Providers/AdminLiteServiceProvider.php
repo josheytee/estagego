@@ -45,6 +45,10 @@ class AdminLiteServiceProvider extends ServiceProvider
                 'text' => 'Newsletters',
                 'url' => 'admin/newsletters',
             ]);
+            $event->menu->add([
+                'text' => 'Contact Messages',
+                'url' => 'admin/messages',
+            ]);
         });
     }
 }

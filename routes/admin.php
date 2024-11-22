@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SubPageController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
 
         Route::resource('blogs', BlogController::class)->names('blogs');
         Route::resource('clients', ClientController::class)->names('clients');
+        Route::resource('messages', ContactMessageController::class)->names('messages');
         Route::resource('newsletters', NewsletterController::class)->names('newsletters');
         Route::resource('homes', HomeController::class)->names('homes');
         Route::resource('features', FeatureController::class)->names('features');

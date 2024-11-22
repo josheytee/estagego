@@ -1,5 +1,8 @@
+@extends('layout.plain')
+@section('title','privacy policy')
+@section('content')
 <!-- App-Solution-Section-Start -->
-<section class="row_am app_solution_section">
+<section class="row_am app_solution_section" style="margin-top: 50px;">
     <!-- container start -->
     <div class="container">
         <!-- row start -->
@@ -152,3 +155,4 @@
     <!-- container end -->
 </section>
 <!-- App-Solution-Section-end -->
+@endsection

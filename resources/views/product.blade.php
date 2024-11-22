@@ -12,7 +12,7 @@
         <div class="bred_text">
           <h1>Services</h1>
           <ul>
-            <li><a href="index.html">Service</a></li>
+            <li><a href="/">Service</a></li>
             <li><span>»</span></li>
             <li>
                 <a href="blog-list.html">
@@ -36,8 +36,10 @@
               <h2>{{$product->title}}</h2>
             </div>
             <div class="main_img">
-              <img src="{{asset('asset/images/blog_detail_main.png')}}" alt="image">
-              {{-- <img src="{{$product->image}}" alt="image"> --}}
+                @if (count($product->images))
+                <img src="{{asset('storage/subs/images/'.$product->images[0]->path) }}" alt="{{$product->images[0]->path}}" style="object-fit: cover;">
+                @endif
+                 {{-- <img src="{{asset('asset/images/blog_detail_main.png')}}" alt="image"> --}}
             </div>
             <div class="info">
               <p>{{$product->content}}</p>

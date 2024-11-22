@@ -14,7 +14,7 @@
         <div class="bred_text">
           <h1>Latest blog post</h1>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><span>»</span></li>
             <li><a href="blog-list.html">Blog list</a></li>
           </ul>

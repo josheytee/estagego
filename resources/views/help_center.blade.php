@@ -14,7 +14,7 @@
           <h1>Need help? Check here</h1>
           <p>Check out some of the frequestly asked questions</p>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><span>»</span></li>
             <li><a href="reviews.html">Help Center - PROPERTY OWNERS / MANAGERS</a></li>
           </ul>
@@ -41,27 +41,27 @@
       <div class="container">
 {{-- <div class="nav-item"> <a class="dark_btn" href="#">GETTING STARTED</a> &nbsp;  &nbsp;  &nbsp; <a class="dark_btn" href="#">MANAGING PROPERTIES</a> &nbsp;  &nbsp;  &nbsp; <a class="dark_btn" href="#">GETTING REPORTS</a>
 </div> --}}
-  
-    <div class="nav-item"> 
+
+    <div class="nav-item">
       @foreach ($categories as $category )
-        
-    
+
+
       @foreach ( $category->SubCategory as $subCategory )
       <a class="dark_btn" href="{{url($subCategory->url.'/'.$subCategory->category_id.'?subcategory='.$subCategory->subcategory_name)}}">
         {{-- href="ledgerinc.php?name='.$value['acct_name'].'&from='.$from.'&to='.$to.'&acct_code='.$value['acct_type'].'&pageName='.$pagename.'"  --}}
-      
+
        {{$subCategory->subcategory_name}}</a> &nbsp;  &nbsp;  &nbsp;
-      
+
       @endforeach
       @endforeach
     </div>
-  
+
         <!-- faq data -->
         <div class="faq_panel">
           <div class="accordion" id="accordionExample">
 
-                    
-            @foreach ( $subCategories as $subcategory) 
+
+            @foreach ( $subCategories as $subcategory)
                 @foreach ($subcategory->Faq as $faq)
                 {{-- {{dd($faq->question)}} --}}
                 <div class="card" data-aos="fade-up" >
@@ -76,11 +76,11 @@
                     <p>{{$faq->answer}}</p>
                     </div>
                 </div>
-                </div>    
-                @endforeach          
+                </div>
+                @endforeach
             @endforeach
-            
-{{-- 
+
+{{--
             <div class="card" data-aos="fade-up" >
               <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
@@ -245,6 +245,6 @@
     </section>
     <!-- Download-Free-App-section-end  -->
 
-    
+
 
     @endsection

@@ -15,10 +15,10 @@
         <div class="bred_text">
           <h1>Services</h1>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><span>»</span></li>
             <li>
-                <a href="blog-list.html">
+                <a href="service-list.html">
                     {{$pages->Page->pageName}}
                 </a>
             </li>
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Story-Section-Start -->
-   <section class="row_am latest_story" id="blog">
+   <section class="row_am latest_story" id="service">
      <!-- container start -->
       <div class="container " >
           {{-- <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
@@ -45,9 +45,10 @@
             <div class="col-md-4 mt-5">
                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                     <div class="story_img">
-                      <img src="{{asset('asset/images/'.$service->image)}}" alt="image" >
-                      {{-- <img src="{{$service->image}}" alt="image" > --}}
-
+                        @if (count($service->images))
+                        <img src="{{asset('storage/subs/images/'.$service->images[0]->path) }}" alt="{{$service->images[0]->path}}" style="width:100%; object-fit: cover;">
+                        @endif
+                      {{-- <img src="{{asset('asset/images/'.$service->image)}}" alt="image" > --}}
                     </div>
                     <div class="story_text">
                         <h3>{{$service->title}}</h3>

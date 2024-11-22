@@ -140,7 +140,7 @@
                 <a class="nav-link" href="{{url('contact')}}">Contact</a>
               </li> --}}
               <li class="nav-item">
-                <a class="nav-link dark_btn" href="index.html#getstarted">GET STARTED</a>
+                <a class="nav-link dark_btn" href="/#getstarted">GET STARTED</a>
               </li>
             </ul>
           </div>

@@ -14,13 +14,18 @@ class StaticController extends Controller
 {
     public function terms()
     {
-
         return view('static.terms');
+    }
+
+    public function about()
+    {
+        $about = About::all()->first();
+
+        return view('static.about', compact('about'));
     }
 
     public function privacy()
     {
-
         return view('static.policy');
     }
 }

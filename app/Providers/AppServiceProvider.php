@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use App\Models\Page;
 use App\Models\AppDownload;
 use App\Models\Contact;
@@ -28,66 +29,56 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-     {  
+    {
         //  enabled because of pagination
         Paginator::useBootstrap();
 
-               View()->composer(['layout.inner','index','layout.main','layout.blog_inner','layout.help_inner'], function($view)
-        {
+        View()->composer(['layout.inner', 'index', 'layout.main', 'layout.blog_inner', 'layout.help_inner', 'layout.plain'], function ($view) {
             // $service=Page::with('Service_product')->get();
             //  $page=Page::all()->load(['Categories','ServicePage']);
 
-            $pageWithAbout=Page::all();
+            $pageWithAbout = Page::all();
 
-            $page=Page::with('Categories','ServicePage')->where('pageName','!=','About')->get();
-           
-             $contact=Contact::all()->first();
-          
-            $category=Category::all();
+            $page = Page::with('Categories', 'ServicePage')->where('pageName', '!=', 'About')->get();
 
-            $appdownload=AppDownload::all()->first();
-            //      
+            $contact = Contact::all()->first();
 
-       
+            $category = Category::all();
 
-        $view->with('pages',$page) 
-        ->with('contact',$contact)
-        ->with('categories',$category)
-        ->with('appdownload',$appdownload)
-        ->with('pageWithAbout',$pageWithAbout)
-        ;
+            $appdownload = AppDownload::all()->first();
+            //
+
+
+
+            $view->with('pages', $page)
+                ->with('contact', $contact)
+                ->with('categories', $category)
+                ->with('appdownload', $appdownload)
+                ->with('pageWithAbout', $pageWithAbout)
+            ;
         });
 
-        // 
-        View()->composer(['partials.downloadApp'], function($view)
-        {
+        //
+        View()->composer(['partials.downloadApp'], function ($view) {
             // $service=Page::with('Service_product')->get();
-             $App=AppDownload::all()->first();
-           
-            //      
+            $App = AppDownload::all()->first();
 
-        $view->with('appdownload',$App) 
-        ;
+            //
+
+            $view->with('appdownload', $App);
         });
         //
 
 
-    
-
-        View()->composer(['partials.latestnews'], function($view)
-        {
-           
-             $blog=Blog::take(3)->latest()->get();
-
-            //      
-
-        $view->with('blogs',$blog)
-            
-        ;
-        }); 
 
 
-        
+        View()->composer(['partials.latestnews'], function ($view) {
 
+            $blog = Blog::take(3)->latest()->get();
+
+            //
+
+            $view->with('blogs', $blog);
+        });
     }
 }

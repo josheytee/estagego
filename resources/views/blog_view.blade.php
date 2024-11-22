@@ -101,7 +101,7 @@
                       {{-- <img src="{{asset('asset/images/blog_d02.png')}}" alt="image"> --}}
                     </div>
                     <div class="text">
-                      <h3>By: J{{$blogBelongs->Author->first_name.' '.$blogBelongs->Author->last_name}}</h3>
+                      <h3>By: {{$blogBelongs->Author->first_name.' '.$blogBelongs->Author->last_name}}</h3>
                       <span>{{$date}}</span>
                     </div>
                 </div>
