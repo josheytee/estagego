@@ -33,7 +33,7 @@
     @if(is_array($value))
         {{-- If the item is an associative array, access its properties --}}
         @if (isset($value['type']) && $value['type'] == 'textarea')
-        <x-adminlte-textarea name="content" label="{{$value['text'] ?? ucfirst($key)}}" rows=5 label-class="text-lightblue" igroup-size="sm"
+        <x-adminlte-textarea name="{{$key}}" label="{{$value['text'] ?? ucfirst($key)}}" rows=5 label-class="text-lightblue" igroup-size="sm"
          placeholder="Insert page...">
             <x-slot name="prependSlot">
                 <div class="input-group-text bg-dark">

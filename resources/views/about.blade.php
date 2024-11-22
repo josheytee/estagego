@@ -78,7 +78,7 @@
 
 
     <!-- Why we are section Start -->
-    <section class="row_am why_we_section" data-aos="fade-in">
+    {{-- <section class="row_am why_we_section" data-aos="fade-in">
       <div class="why_inner">
         <div class="container">
           <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
@@ -138,7 +138,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
 
     <!-- About-App-Section-Start -->
@@ -150,7 +150,7 @@
           <div class="col-lg-6">
             <!-- about images -->
             <div class="abt_img" data-aos="fade-in" data-aos-duration="1500">
-                <img src="{{asset('asset/images/about_main.png')}}" alt="image">
+                <img src="{{asset('asset/images/about/quality.jpg')}}" alt="image">
             </div>
           </div>
           <div class="col-lg-6">
