@@ -25,14 +25,14 @@
               <span>Review</span>
               <span>
                 @php
-                
+
                   $time = strtotime($singleBlog->updated_at);
-                
+
                   $date=date('F d, Y',$time);
                   $postDuration  = Date('h\h i\ \m\i\n',$time);
                  echo $postDuration.' '.'ago';
 
-                @endphp 
+                @endphp
              </span>
             </div>
             <div class="section_title">
@@ -41,18 +41,21 @@
 
             @if (Session::has('msgSuccess'))
                 <div class="container content-justify-center">
-                  {!! "<div class='alert alert-success'>".Session::get('msgSuccess')."</div>" !!} 
+                  {!! "<div class='alert alert-success'>".Session::get('msgSuccess')."</div>" !!}
                 </div>
               @elseif (Session::has('msgError'))
               <div class="container content-justify-center">
-                  {!! "<div class='alert alert-warnining'>".Session::get('msgError')."</div>" !!} 
+                  {!! "<div class='alert alert-warnining'>".Session::get('msgError')."</div>" !!}
                 </div>
             @endif
 
 
             <div class="main_img">
-              <img class="image-fluid max-width" src="{{asset('asset/images/blog_detail_main.png')}}" alt="image">
-            </div>
+                @if (count($singleBlog->images))
+                {{-- <img src="{{asset('storage/blogs/images/'.$singleBlog->images[0]->path) }}" alt="{{$singleBlog->images[0]->path}}" style="width: 100%;  object-fit: cover;"> --}}
+                <img class="image-fluid max-width" src="{{asset('storage/blogs/images/'.$singleBlog->images[0]->path) }}" style="width: 100%; height:400px;  object-fit: cover;" alt="image">
+            @endif
+        </div>
             <div class="info">
               <p class="">{{$singleBlog->content}}</p>
               {{-- <p>Printing and typesetting in dustry lorem Ipsum has been the industrys standard dummy text ev er since the 1500s, when an unnown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic Lorem Ipsum is simply dummy text of the printing and typesettingindustry lorem Ipsum has been the industrys centuries, but also the leap into electronic.</p>
@@ -69,7 +72,7 @@
                 <li><p> <span class="icon"><i class="icofont-check-circled"></i></span> Type specimen book. It has survived not only.</p></li>
               </ul> --}}
             </div>
-            
+
             {{-- two-images --}}
             {{-- <div class="two_img">
               <div class="row">
@@ -141,14 +144,14 @@
                 <div class="text">
                   <span>
                     @php
-                
+
                   $time = strtotime($comment->updated_at);
-                
+
                   $date=date('F d, Y',$time);
                   $postDuration  = Date('h\h i\ \m\i\n',$time);
                  echo $postDuration.' '.'ago';
 
-                @endphp 
+                @endphp
                   </span>
                   <h4>{{$comment->name}}</h4>
                 </div>
@@ -190,8 +193,8 @@
         </ul>
       </div>
     </section>
-    
-   
+
+
     <!-- Comment Form Section -->
     <section class="row_am comment_form_section">
       <div class="container">
@@ -239,6 +242,6 @@
     <!-- Story-Section-Start -->
     @include('partials.latestnews')
 
-   
+
 
     @endsection

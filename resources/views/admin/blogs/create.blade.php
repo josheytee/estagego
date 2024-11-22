@@ -9,7 +9,7 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <form action="{{ route('admin.blogs.store') }}" method="post">
+    <form action="{{ route('admin.blogs.store') }}" method="post"  enctype="multipart/form-data">
         @csrf
         <x-adminlte-options :options="$authors"
          placeholder="Select an option..."/>

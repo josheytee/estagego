@@ -14,8 +14,9 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SubPageController;
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\NewsletterController;
 use App\Models\Comment;
-use App\Models\Feature;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/admin-auth.php';
@@ -29,7 +30,9 @@ Route::group(['middleware' => ['auth:admin']], function () {
             return view('admin.dashboard', compact('comments'));
         })->middleware('verified')->name('dashboard');
 
-        Route::resource('blogs', BlogController::class);
+        Route::resource('blogs', BlogController::class)->names('blogs');
+        Route::resource('clients', ClientController::class)->names('clients');
+        Route::resource('newsletters', NewsletterController::class)->names('newsletters');
         Route::resource('homes', HomeController::class)->names('homes');
         Route::resource('features', FeatureController::class)->names('features');
         Route::resource('contacts', ContactController::class)->names('contacts');

@@ -9,7 +9,7 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <form action="{{ route('admin.blogs.update', $blog) }}" method="post">
+    <form action="{{ route('admin.blogs.update', $blog) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         {{-- image --}}

@@ -103,7 +103,9 @@
           @foreach ($clients as $client)
             <div class="item">
               <div class="logo">
-                <img src="{{$client->logo}}" alt="image" >
+                @if (count($client->images))
+                <img src="{{asset('storage/clients/images/'.$client->images[0]->path) }}" alt="{{$client->images[0]->path}}" style="width: 100px; height: 50px; object-fit: cover;">
+                @endif
               </div>
             </div>
           @endforeach
@@ -344,8 +346,8 @@
           	<!-- h2 -->
             <h2><span>How it works</span> - 3 easy steps</h2>
             <!-- p -->
-            <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe
-              standard dummy.</p>
+            <p>     EstateGO makes property management effortless with just three simple steps. <br> Download the app, manage your properties seamlessly, and enjoy a world of convenience at your fingertips.
+            </p>
           </div>
           <div class="step_block">
 
@@ -443,11 +445,13 @@
                   <span><i class="icofont-star"></i></span>
                 </div> --}}
 
-                    <p class="review">
+                <p class="review">
                       {{$review->content}}
                     </p>
                     <div class="testimonial_img">
-                      {{-- <img src="{{asset('storage/testimonials/images/'.$review->images[0]->path)}}" alt="image" > --}}
+                        @if ($review->images->isNotEmpty())
+                        <img src="{{asset('storage/testimonials/images/'.$review->images[0]->path)}}" alt="image" >
+                        @endif
                     </div>
                     <h3>{{$review->name}}</h3>
                     <span class="designation">{{$review->position}}</span>
@@ -506,8 +510,9 @@
             <a href="#">TOTAL USER REVIEWS <i class="icofont-arrow-right"></i></a>          </div>
 
           <!-- avtar faces -->
-          <div class="avtar_faces">
-            <img src="{{asset('asset/images/avtar_testimonial.png')}}" alt="image" >          </div>
+          {{-- <div class="avtar_faces">
+            <img src="{{asset('asset/images/avtar_testimonial.png')}}" alt="image" >
+          </div> --}}
         </div>
       </div>
       <!-- container end -->
@@ -526,8 +531,8 @@
           <!-- h2 -->
           <h2><span>FAQ</span> - Frequently Asked Questions</h2>
           <!-- p -->
-          <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe
-            standard dummy.</p>
+          <p>    Find answers to the most common questions about EstateGO. <br> Whether you're a new or seasoned user, we’ve got you covered.
+        </p>
         </div>
         <!-- faq data -->
         <div class="faq_panel">
@@ -536,11 +541,11 @@
               <div class="card" data-aos="fade-up" data-aos-duration="1500">
                 <div class="card-header" id="headingOne">
                   <h2 class="mb-0">
-                    <button type="button" class="btn btn-link active" data-toggle="collapse" data-target="#collapseOne">
+                    <button type="button" class="btn btn-link active" data-toggle="collapse" data-target="#faq_{{$faq->id}}">
                       <i class="icon_faq icofont-plus"></i></i> {{ $faq->question}}</button>
                   </h2>
                 </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="faq_{{$faq->id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="card-body">
                     <p>{{ $faq->answer}}</p>
                   </div>
@@ -610,10 +615,11 @@
       <div class="container-fluid">
         <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
             <!-- h2 -->
-            <h2>Beautiful <span>interface</span></h2>
+            <h2>Beautiful <span>Interface</span></h2>
             <!-- p -->
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe standard dummy.
+                Explore a visually stunning interface that seamlessly combines functionality and elegance.
+                <br>Our design ensures an intuitive user experience, bringing your ideas to life with style and efficiency.
             </p>
         </div>
 
@@ -697,27 +703,6 @@
         <!-- container end -->
     </section>
     <!-- Download-Free-App-section-end  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @include('partials.latestnews')
 

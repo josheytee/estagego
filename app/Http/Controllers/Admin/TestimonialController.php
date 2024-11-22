@@ -67,7 +67,7 @@ class TestimonialController extends Controller
     public function store(Request $request)
     {
         // dd($request->all() + ['proffession' => null]);
-        $testimonial = About::create($request->all());
+        $testimonial = Testimonials::create($request->all());
         if (isset($testimonial->id))
             return redirect()->route('testimonials.index');
         else

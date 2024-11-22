@@ -41,6 +41,10 @@ class AdminLiteServiceProvider extends ServiceProvider
                 'text' => 'Testimonials',
                 'url' => 'admin/testimonials',
             ]);
+            $event->menu->add([
+                'text' => 'Newsletters',
+                'url' => 'admin/newsletters',
+            ]);
         });
     }
 }

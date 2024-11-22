@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
-    protected $table='clients';
-    protected $fillable=['name','logo','content','image'];
+    protected $table = 'clients';
+    protected $fillable = ['name', 'logo', 'content', 'image'];
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

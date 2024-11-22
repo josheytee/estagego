@@ -2,26 +2,29 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Contacts')
+@section('subtitle', 'Abouts')
 @section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Contacts')
+@section('content_header_subtitle', 'Abouts')
 
 {{-- Content body: main page content --}}
 @php
     $formArray=[
-'address',
-'email',
-'phone_number',
-'website',
-'mobile',
-'facebook_url',
-'twitter_url',
-'linkedin_url',
-'tiktok_url'
+'title1'=>[
+    'type'=>"textarea"
+],
+'content1'=>[
+    'type'=>"textarea"
+],
+'title2'=>[
+    'type'=>"textarea"
+],
+'content2'=>[
+    'type'=>"textarea"
+],
     ]
 @endphp
 @section('content_body')
-    <form action="{{ route('admin.contacts.update', $contact) }}" method="post">
+    <form action="{{ route('admin.abouts.update', $about) }}" method="post">
         @csrf
         @method('PUT')
 
@@ -37,10 +40,10 @@
                     <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                 </div>
             </x-slot>
-            {{ $contact->$key }} </x-adminlte-textarea>
+            {{ htmlspecialchars_decode($about->$key) }} </x-adminlte-textarea>
         @else
         <x-adminlte-input name="{{$key}}" label="{{ $value['text'] ?? ucfirst($key) }}" placeholder="{{ $value['text'] ?? ucfirst($key) }}" label-class="text-lightblue"
-        value="{{ $contact->$key }}" enable-old-support>
+        value="{{ $about->$key }}" enable-old-support>
         <x-slot name="prependSlot">
             <div class="input-group-text">
                 <i class="fas fa-user text-lightblue"></i>
@@ -52,7 +55,7 @@
     @else
         {{-- If the item is a simple string, use it as the name and label --}}
         <x-adminlte-input name="{{$value}}" label="{{ ucfirst(str_replace('_', ' ', $value)) }}" placeholder="{{ ucfirst(str_replace('_', ' ', $value)) }}" label-class="text-lightblue"
-        value="{{ $contact->$value }}" enable-old-support>
+        value="{{ $about->$value }}" enable-old-support>
         <x-slot name="prependSlot">
             <div class="input-group-text">
                 {{-- <i class="fas fa-user text-lightblue"></i> --}}

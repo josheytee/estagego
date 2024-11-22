@@ -8,10 +8,10 @@
                   <!-- p -->
                   <p>Be the first to recieve all latest post in your inbox</p>
               </div>
-              <form action="{{url('/mail')}}" method='POST' data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+              <form action="{{route('admin.newsletters.store')}}" method='POST' data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
                 @csrf
                   <div class="form-group">
-                      <input type="email" class="form-control" placeholder="Enter your email" name='emailaddress'>
+                      <input type="email" name="email" class="form-control" placeholder="Enter your email" name='emailaddress'>
                   </div>
                   <div class="form-group">
                       <button class="btn">SUBMIT</button>

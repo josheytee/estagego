@@ -3,7 +3,9 @@
        <div class="container">
            <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
                <h2>Read latest <span>story</span></h2>
-               <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe standard dummy.</p>
+               <p>
+                Discover the latest stories that inspire, inform, and captivate. <br>Dive into a world of insightful content crafted to keep you engaged and in the know.
+            </p>
            </div>
            <!-- row start -->
            <div class="row">
@@ -12,18 +14,20 @@
                     <div class="col-md-4">
                         <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                             <div class="story_img">
-                            <img src="{{asset('asset/images/'.$blog->image)}}" alt="image" >
+                                @if ($blog->images->isNotEmpty())
+                                <img src="{{asset('storage/blogs/images/'.$blog->images[0]->path)}}" style="width:100%" alt="image" >
+                                @endif
                             {{-- <img src="{{asset('asset/images/story01.png')}}" alt="image" > --}}
                             <span>
                                 @php
-                
+
                                     $time = strtotime($blog->updated_at);
-                                    
+
                                     $date=date('F d, Y',$time);
                                     $postDuration  = Date('h\h i\ \m\i\n',$time);
                                     echo $postDuration.' '.'ago';
 
-                                @endphp 
+                                @endphp
                             </span>
                             </div>
                             <div class="story_text">
@@ -35,7 +39,7 @@
                         </div>
                     </div>
                 @endforeach
-            
+
            </div>
            <!-- row end -->
        </div>

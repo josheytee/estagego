@@ -21,9 +21,9 @@
   <!-- Responsive-Style-link -->
   <link rel="stylesheet" href="{{asset('asset/css/responsive.css')}}">
       		{{-- boostrap select --}}
-   <link rel="stylesheet" href="{{asset('asset/css/bootstrap-select.min.css')}}">	
+   <link rel="stylesheet" href="{{asset('asset/css/bootstrap-select.min.css')}}">
   		{{-- boostrap select-country --}}
-   <link rel="stylesheet" href="{{asset('asset/css/bootstrap-select-country.min.css')}}">	
+   <link rel="stylesheet" href="{{asset('asset/css/bootstrap-select-country.min.css')}}">
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{asset('asset/images/favicon.png')}}" type="image/x-icon">
 
@@ -64,59 +64,59 @@
 
               <li class="{{$page->class1}}">
                 <a class="{{$page->class2}}" href="{{url("$page->url")}}">{{$page->pageName}}</a>
-             
+
                 @if(count($page->Categories))
-  
+
                 <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
                 <div class="sub_menu">
-                  
+
                   <ul>
                     @foreach ( $page->Categories as $dropdown)
-                   
+
                     <li><a href="{{url($dropdown->url.'/'.$dropdown->id."?subcategory=GETTING STARTED")}}">{{$dropdown->category_name}}</a></li>
                     @endforeach
                   </ul>
-                  
+
                 </div>
-                
+
                 @endif
 
                  {{--  --}}
                  @if(count($page->ServicePage))
-  
+
                 <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
                 <div class="sub_menu">
-                  
+
                   <ul>
                     @foreach ( $page->ServicePage as $dropdown)
-                   
+
                     <li><a href="{{url('services/'.$dropdown->id)}}">{{$dropdown->title}}</a></li>
                     @endforeach
                   </ul>
-                  
+
                 </div>
-                
+
                 @endif
-                
+
                  </li>
-                 
-                 
+
+
               @endforeach
-              
+
               {{-- <li class="nav-item active">
                 <a class="nav-link" href="{{url('/')}}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{url('/#features')}}">Features</a>
               </li>
-              
-              
-	 		
+
+
+
 			<li class="nav-item">
                 <a class="nav-link" href="{{url('/#how_it_work')}}">How it works</a>
               </li>
-			  
-             
+
+
 
               <!-- secondery menu start -->
               <li class="nav-item has_dropdown">
@@ -131,11 +131,11 @@
                 </div>
               </li>
               <!-- secondery menu end -->
-			  
+
 			   <li class="nav-item">
                 <a class="nav-link" href="{{url('blog')}}">Blog</a>
               </li>
-              
+
               <li class="nav-item">
                 <a class="nav-link" href="{{url('contact')}}">Contact</a>
               </li> --}}
@@ -190,9 +190,9 @@
                 <ul>
                   @foreach ($pageWithAbout as $page )
                     <li><a href="{{url("$page->url")}}">{{$page->pageName}}</a></li>
-                  
+
                   @endforeach
-                  
+
                 </ul>
               </div>
             </div>
@@ -203,9 +203,9 @@
                 <h3>Help & Suport</h3>
                 <ul>
                   @foreach ($categories as $category)
-                   <li><a href="#">{{$category->category_name}}</a></li> 
+                   <li><a href="#">{{$category->category_name}}</a></li>
                   @endforeach
-              
+
                 </ul>
               </div>
             </div>
@@ -241,14 +241,14 @@
           <!-- row start -->
           <div class="row">
             <div class="col-md-6">
-              <p>© Copyrights 
+              <p>© Copyrights
                 @php
                  echo date('Y').'.';
                 @endphp
                  All rights reserved.</p>
             </div>
             <div class="col-md-6">
-              <p class="developer_text">Design by <a href="#" target="blank">Staunch Technologies</a></p>
+              <p class="developer_text">Design by <a href="https://cloudcraves.com/" target="blank">Cloud Craves</a></p>
             </div>
           </div>
           <!-- row end -->
@@ -274,11 +274,11 @@
             <div class="modal-body">
                 <div id="video-container" class="video-container">
                     <iframe id="youtubevideo" src="" width="640" height="360" frameborder="0" allowfullscreen></iframe>
-                </div>        
+                </div>
             </div>
             <div class="modal-footer">
             </div>
-        </div> 
+        </div>
     </div>
   </div>
 

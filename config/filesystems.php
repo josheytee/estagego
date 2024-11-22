@@ -62,6 +62,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'clients' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/clients/images'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
         'testimonials' => [
             'driver' => 'local',
             'root' => storage_path('app/public/testimonials/images'),

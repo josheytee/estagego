@@ -22,8 +22,8 @@ class BlogController extends Controller
 
     public function create(Request $request)
     {
-        $authors = Authur::all();
-        return view('admin.blogs.create', compact('authors'));
+        $model = new Blog();
+        return view('admin.blogs.create', compact('model'));
     }
 
     public function show(Request $request, Blog $blog)
@@ -41,7 +41,6 @@ class BlogController extends Controller
     {
         // dd($request->validated());
         $blog->update($request->all());
-
         if ($imagePath = $this->uploadImage($request, 'blogs', \Str::slug($blog->title) . '_' . \Str::slug($blog->id))) {
             if ($image = $blog->images()->where('imageable_id', $blog->id)->first()) {
                 $image->update([
@@ -68,6 +67,11 @@ class BlogController extends Controller
     {
         // dd($request->all() + ['proffession' => null]);
         $blog = Blog::create($request->all());
+        if ($imagePath = $this->uploadImage($request, 'blogs', \Str::slug($blog->title) . '_' . \Str::slug($blog->id))) {
+            $blog->images()->create([
+                'path' => $imagePath
+            ]);
+        }
         if (isset($blog->id))
             return redirect()->route('admin.blogs.index');
         else

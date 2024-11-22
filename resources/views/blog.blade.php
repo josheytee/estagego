@@ -2,7 +2,7 @@
   @section('title','EstateGo:Blogs')
    @section('content')
 
-   
+
     <!-- BredCrumb-Section -->
     <div class="bred_crumb">
       <div class="container">
@@ -41,7 +41,9 @@
           <div class="col-lg-6" data-aos="fade-in" data-aos-duration="1500">
             <div class="blog_img">
                 {{-- <img src="{{asset('asset/images/'.$blogPost->image)}}" alt="image"> --}}
-                <img src="{{$blogPost->image}}" alt="image">
+                @if (count($blogPost->images))
+                    <img src="{{asset('storage/blogs/images/'.$blogPost->images[0]->path) }}" alt="{{$blogPost->images[0]->path}}" style="width: 100%;  object-fit: cover;">
+                @endif
                 <span>
                   @php
                   $time=strtotime($blogPost->updated_at);
@@ -80,8 +82,9 @@
             <div class="col-md-4">
                 <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                     <div class="story_img">
-                      <img src="{{asset('asset/images/'.$post->image)}}" alt="image" >
-                      {{-- <img src="{{$post->image}}" alt="image" > --}}
+                        @if (count($blogPost->images))
+                        <img src="{{asset('storage/blogs/images/'.$blogPost->images[0]->path) }}" alt="{{$blogPost->images[0]->path}}" style="width: 100%;  object-fit: cover;">
+                    @endif                      {{-- <img src="{{$post->image}}" alt="image" > --}}
                       <span>
                          @php
                             $time=strtotime($post->updated_at);

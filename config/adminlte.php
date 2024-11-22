@@ -369,6 +369,20 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'Clients',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'all',
+                    'route' => 'admin.clients.index',
+                ],
+                [
+                    'text' => 'create',
+                    'route' => 'admin.clients.create',
+                ],
+            ],
+        ],
         ['header' => 'Blog'],
         [
             'text' => 'Authors',
