@@ -41,6 +41,9 @@ return [
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
+        'links' => [
+            base_path('public_html/storage') => storage_path('app/public'),
+        ],
         'experts' => [
             'driver' => 'local',
             'root' => storage_path('app/public/experts/images'),

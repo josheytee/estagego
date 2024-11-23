@@ -53,6 +53,14 @@ Route::resource('/faq_view', FaqviewController::class);
 // blog page
 Route::get('/blog', [BlogController::class, 'index']);
 
+Route::get('/optimize', function () {
+    Artisan::call('storage:link');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('optimize');
+    return "Application Storage Linked Successfully";
+});
+
 // blog view page
 
 Route::get('/blog_view/{blog_view}', [BlogviewController::class, 'show']);
