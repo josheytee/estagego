@@ -79,5 +79,5 @@ Route::get('/services/{services}', [serviceController::class, 'show']);
 // comment
 Route::POST('/comment', [CommentController::class, 'store']);
 Route::get('/static/terms', [StaticController::class, 'terms'])->name('static.terms');
-Route::get('/static/privacy', [StaticController::class, 'privacy'])->name('static.terms');
+Route::get('/static/privacy', [StaticController::class, 'privacy'])->name('static.privacy');
 Route::get('/static/about-us', [StaticController::class, 'about'])->name('static.about');
