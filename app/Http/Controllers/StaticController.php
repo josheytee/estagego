@@ -24,6 +24,11 @@ class StaticController extends Controller
         return view('static.about', compact('about'));
     }
 
+    public function support()
+    {
+        return view('static.support');
+    }
+
     public function privacy()
     {
         return view('static.policy');

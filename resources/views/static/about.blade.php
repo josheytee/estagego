@@ -32,7 +32,20 @@
             <div class="col-lg-6">
               <div class="app_images" data-aos="fade-in" data-aos-duration="1500">
                 <ul>
-                  <li><img src="{{asset('asset/images/about/smiling_house.avif')}}" style="width: 400px" alt=""></li>
+                  <li>
+                    <a class="popup-youtube play-button"
+                    data-url="https://www.youtube.com/embed/4jnzf1yj48M?autoplay=1&mute=1" data-toggle="modal"
+                    data-target="#myModal" title="About Video">
+                    {{-- <img src="{{asset('asset/images/about/construct.jpg')}}" style="width:250px"  alt=""> --}}
+                    <img src="{{asset('asset/images/about/smiling_house.avif')}}" style="width: 400px" alt="">
+                    <div class="waves-block">
+                      <div class="waves wave-1"></div>
+                      <div class="waves wave-2"></div>
+                      <div class="waves wave-3"></div>
+                    </div>
+                    <span class="play_icon"><img src="{{asset('asset/images/play_black.png')}}" alt="image"></span>
+                  </a>
+                </li>
                   <li>
                     <a class="popup-youtube play-button"
                       data-url="https://www.youtube.com/embed/4jnzf1yj48M?autoplay=1&mute=1" data-toggle="modal"
@@ -46,7 +59,20 @@
                       <span class="play_icon"><img src="{{asset('asset/images/play_black.png')}}" alt="image"></span>
                     </a>
                   </li>
-                  <li><img src="{{asset('asset/images/about/house_keys.avif')}}" style="width: 300px;height: 300px;object-fit: cover;" alt=""></li>
+                  <li>
+                    <a class="popup-youtube play-button"
+                    data-url="https://www.youtube.com/embed/4jnzf1yj48M?autoplay=1&mute=1" data-toggle="modal"
+                    data-target="#myModal" title="About Video">
+                    <img src="{{asset('asset/images/about/house_keys.avif')}}" style="width: 300px;height: 300px;object-fit: cover;" alt="">
+                    {{-- <img src="{{asset('asset/images/about/construct.jpg')}}" style="width:250px"  alt=""> --}}
+                    <div class="waves-block">
+                      <div class="waves wave-1"></div>
+                      <div class="waves wave-2"></div>
+                      <div class="waves wave-3"></div>
+                    </div>
+                    <span class="play_icon"><img src="{{asset('asset/images/play_black.png')}}" alt="image"></span>
+                  </a>
+                  </li>
                 </ul>
               </div>
             </div>
