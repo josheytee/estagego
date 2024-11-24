@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Client;
 use App\Models\Expert;
 use App\Models\Home;
 use App\Models\Testimonials;
@@ -19,6 +20,8 @@ class AboutController extends Controller
         $home = Home::all()->first();
         $reviews = Testimonials::all();
         $experts = Expert::all();
-        return view('about', compact('about', 'home', 'reviews', 'experts'));
+        $clients = Client::all();
+        $clientHomeContent = Client::where('id', '=', '1')->first();
+        return view('about', compact('about', 'home', 'reviews', 'experts', 'clients', 'clientHomeContent'));
     }
 }

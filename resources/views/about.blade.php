@@ -328,68 +328,76 @@
     </section>
 
 
-    <!-- Trusted Section start -->
-    <section class="row_am trusted_section mt-0 about_trust_section">
-      <!-- container start -->
-      <div class="container">
-        <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-          <!-- h2 -->
-          <h2>Trusted by <span>150+</span> companies</h2>
-          <!-- p -->
-          <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe
-            standard dummy.</p>
-        </div>
+   <!-- Trusted Section start -->
+   <section class="row_am trusted_section">
+    <!-- container start -->
+    <div class="container">
+      <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+        <!-- h2 -->
+        <h2>Trusted by over<span>{{' '.$clients->count()}}</span> companies</h2>
+        <!-- p -->
+        <p>{{$clientHomeContent->home_content}}</p>
+      </div>
 
-        <!-- logos slider start -->
-        <div class="company_logos">
-          <div id="company_slider" class="owl-carousel owl-theme">
-            <div class="item">
-              <div class="logo">
-                <img src="{{asset('asset/images/paypal.png')}}" alt="image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="logo">
-                <img src="{{asset('asset/images/spoty.png')}}" alt="image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="logo">
-                <img src="{{asset('asset/images/shopboat.png')}}" alt="image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="logo">
-                <img src="{{asset('asset/images/slack.png')}}" alt="image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="logo">
-                <img src="{{asset('asset/images/envato.png')}}" alt="image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="logo">
-                <img src="{{asset('asset/images/paypal.png')}}" alt="image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="logo">
-                <img src="{{asset('asset/images/spoty.png')}}" alt="image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="logo">
-                <img src="{{asset('asset/images/shopboat.png')}}" alt="image">
-              </div>
+      <!-- logos slider start -->
+
+
+
+      <div class="company_logos" >
+        <div id="company_slider" class="owl-carousel owl-theme">
+
+        @foreach ($clients as $client)
+          <div class="item">
+            <div class="logo">
+              @if (count($client->images))
+              <img src="{{asset('storage/clients/images/'.$client->images[0]->path) }}" alt="{{$client->images[0]->path}}" style="width: 100px; height: 50px; object-fit: cover;">
+              @endif
             </div>
           </div>
+        @endforeach
+          {{-- <div class="item">
+            <div class="logo">
+              <img src="{{asset('asset/images/mendipp.png')}}" alt="image" >
+            </div>
+          </div>
+          <div class="item">
+            <div class="logo">
+              <img src="{{asset('asset/images/admiraltyhomes.png')}}" alt="image" >
+            </div>
+          </div>
+          <div class="item">
+            <div class="logo">
+              <img src="{{asset('asset/images/estatelinks.png')}}" alt="image" >
+            </div>
+          </div>
+          <div class="item">
+            <div class="logo">
+             <img src="{{asset('asset/images/mendipp.png')}}" alt="image" >
+            </div>
+          </div>
+          <div class="item">
+            <div class="logo">
+              <img src="{{asset('asset/images/admiraltyhomes.png')}}" alt="image" >
+            </div>
+          </div>
+          <div class="item">
+            <div class="logo">
+              <img src="{{asset('asset/images/estatelinks.png')}}" alt="image" >
+            </div>
+          </div>
+          <div class="item">
+            <div class="logo">
+              <img src="{{asset('asset/images/mendipp.png')}}" alt="image" >
+            </div>
+          </div> --}}
         </div>
-        <!-- logos slider end -->
       </div>
-      <!-- container end -->
-    </section>
-    <!-- Trusted Section ends -->
+
+      <!-- logos slider end -->
+    </div>
+    <!-- container end -->
+  </section>
+  <!-- Trusted Section ends -->
 
 
     <!-- News-Letter-Section-Start -->
