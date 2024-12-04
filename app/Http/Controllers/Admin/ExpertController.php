@@ -68,11 +68,9 @@ class ExpertController extends Controller
         $expert = Expert::create($request->all());
 
         if ($imagePath = $this->uploadImage($request, 'experts', \Str::slug($expert->title) . '_' . \Str::slug($expert->name))) {
-            if ($image = $expert->images()->where('imageable_id', $expert->id)->first()) {
-                $expert->images()->create([
-                    'path' => $imagePath
-                ]);
-            }
+            $expert->images()->create([
+                'path' => $imagePath
+            ]);
         }
         if (isset($expert->id))
             return redirect()->route('admin.experts.index');
