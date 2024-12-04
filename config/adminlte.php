@@ -350,7 +350,7 @@ return [
                 ],
                 [
                     'text' => 'Create Video',
-                    'url' => 'admin/faqs/create?category=3',
+                    'url' => 'admin/faqs/create?category=4',
                 ],
             ],
         ],
