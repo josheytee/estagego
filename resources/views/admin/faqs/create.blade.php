@@ -8,14 +8,13 @@
 
 {{-- Content body: main page content --}}
 @section('content_body')
-    <form action="{{ route('admin.faqs.update', $faq) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.faqs.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
         {{-- Minimal --}}
-        <input type="hidden" name="category_id" value="{{ $faq->category_id }}">
+        <input type="hidden" name="category_id" value="{{ $category }}">
         <x-adminlte-select-bs name="category_id" label="Category" label-class="text-lightblue" disabled>
             @foreach ($categories as $cat)
-                @if ($cat->id == $faq->category_id)
+                @if ($cat->id == $category)
                     <option value="{{ $cat->id }}" selected>{{ $cat->category_name }}</option>
                 @else
                     <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
@@ -25,20 +24,14 @@
 
         <x-adminlte-select-bs name="subcategory_name" label="Sub Category" label-class="text-lightblue">
             @foreach ($subCategories as $subCategory)
-                @if ($subCategory->subcategory_name == $faq->subcategory_name)
-                    <option value="{{ $subCategory->subcategory_name }}" selected>{{ $subCategory->url }} -
-                        {{ $subCategory->subcategory_name }}
-                    </option>
-                @else
-                    <option value="{{ $subCategory->subcategory_name }}">{{ $subCategory->url }} -
-                        {{ $subCategory->subcategory_name }}
-                    </option>
-                @endif
+                <option value="{{ $subCategory->subcategory_name }}">{{ $subCategory->url }} -
+                    {{ $subCategory->subcategory_name }}
+                </option>
             @endforeach
         </x-adminlte-select-bs>
 
         <x-adminlte-input name="question" label="Enter Question" placeholder="Question" label-class="text-lightblue"
-            value="{{ $faq->question }}" enable-old-support>
+            value="" enable-old-support>
             <x-slot name="prependSlot">
                 <div class="input-group-text">
                     <i class="fas fa-note text-lightblue"></i>
@@ -59,8 +52,8 @@
             </x-slot>
         </x-adminlte-input-file-krajee>
 
-        <x-adminlte-input name="url" label="Video Link" placeholder="URL" label-class="text-lightblue"
-            value="{{ $answer['url'] }}" enable-old-support>
+        <x-adminlte-input name="url" label="Video Link" placeholder="URL" label-class="text-lightblue" value=""
+            enable-old-support>
             <x-slot name="prependSlot">
                 <div class="input-group-text">
                     <i class="fas fa-link text-lightblue"></i>

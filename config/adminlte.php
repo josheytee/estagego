@@ -347,12 +347,11 @@ return [
                 [
                     'text' => 'all',
                     'route' => 'admin.faqs.index',
-                    // 'url' => 'admin/comments',
                 ],
-                // [
-                //     'text' => 'create',
-                //     'route' => 'admin.faqs.create',
-                // ],
+                [
+                    'text' => 'Create Video',
+                    'url' => 'admin/faqs/create?category=3',
+                ],
             ],
         ],
         [

@@ -246,7 +246,8 @@
                                 All rights reserved.</p>
                         </div>
                         <div class="col-md-6">
-                            <p class="developer_text">Design by <a href="https://cloudcraves.com/" target="blank">Cloud Craves</a></p>
+                            <p class="developer_text">Design by <a href="https://cloudcraves.com/"
+                                    target="blank">Cloud Craves</a></p>
                         </div>
                     </div>
                     <!-- row end -->

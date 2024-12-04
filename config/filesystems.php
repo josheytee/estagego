@@ -51,6 +51,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'faqs' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/faqs/images'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
         'subs' => [
             'driver' => 'local',
             'root' => storage_path('app/public/subs/images'),
