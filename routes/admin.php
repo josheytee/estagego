@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SubPageController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactMessageController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +43,8 @@ Route::group(['middleware' => ['auth:admin']], function () {
         Route::resource('abouts', AboutController::class)->names('abouts');
         Route::resource('testimonials', TestimonialController::class)->names('testimonials');
         Route::resource('faqs', FaqController::class)->names('faqs');
+        Route::resource('categories', CategoryController::class)->names('categories');
+        Route::resource('subcategories', SubCategoryController::class)->names('subcategories');
         Route::resource('experts', ExpertController::class)->names('experts');
         Route::resource('authors', AuthorController::class)->names('authors');
         Route::resource('pages/subs', SubPageController::class)->names('subs');

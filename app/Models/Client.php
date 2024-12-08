@@ -9,7 +9,7 @@ class Client extends Model
 {
     use HasFactory;
     protected $table = 'clients';
-    protected $fillable = ['name', 'logo', 'content', 'image'];
+    protected $fillable = ['name', 'logo', 'content', 'image', 'home_content'];
 
     public function images()
     {

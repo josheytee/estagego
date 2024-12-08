@@ -23,10 +23,11 @@
             @endforeach
         </x-adminlte-select-bs>
 
-        <x-adminlte-select-bs name="subcategory_name" label="Sub Category" label-class="text-lightblue">
+        <input type="hidden" name="subcategory_id" value="{{ $faq->subcategory_id }}">
+        <x-adminlte-select-bs name="subcategory_id" label="Sub Category" label-class="text-lightblue">
             @foreach ($subCategories as $subCategory)
-                @if ($subCategory->subcategory_name == $faq->subcategory_name)
-                    <option value="{{ $subCategory->subcategory_name }}" selected>{{ $subCategory->url }} -
+                @if ($subCategory->id == $faq->subcategory_id)
+                    <option value="{{ $subCategory->id }}" selected>{{ $subCategory->url }} -
                         {{ $subCategory->subcategory_name }}
                     </option>
                 @else
@@ -51,23 +52,33 @@
             data-on-color="teal">
         </x-adminlte-input-switch>
 
-        <x-adminlte-input-file-krajee name="image" igroup-size="sm" placeholder="Choose a file...">
-            <x-slot name="prependSlot">
-                <div class="input-group-text bg-lightblue">
-                    <i class="fas fa-upload"></i>
-                </div>
-            </x-slot>
-        </x-adminlte-input-file-krajee>
+        @if ($faq->category->id == 4)
+            <x-adminlte-input-file-krajee name="image" igroup-size="sm" placeholder="Choose a file...">
+                <x-slot name="prependSlot">
+                    <div class="input-group-text bg-lightblue">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input-file-krajee>
 
-        <x-adminlte-input name="url" label="Video Link" placeholder="URL" label-class="text-lightblue"
-            value="{{ $answer['url'] }}" enable-old-support>
-            <x-slot name="prependSlot">
-                <div class="input-group-text">
-                    <i class="fas fa-link text-lightblue"></i>
-                </div>
-            </x-slot>
-        </x-adminlte-input>
-
+            <x-adminlte-input name="url" label="Video Link" placeholder="URL" label-class="text-lightblue"
+                value="{{ $answer ? $answer['url'] : '' }}" enable-old-support>
+                <x-slot name="prependSlot">
+                    <div class="input-group-text">
+                        <i class="fas fa-link text-lightblue"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        @else
+            <x-adminlte-input name="answer" label="Answer" placeholder="Enter Answer" label-class="text-lightblue"
+                value="{{ $answer }}" enable-old-support>
+                <x-slot name="prependSlot">
+                    <div class="input-group-text">
+                        <i class="fas fa-link text-lightblue"></i>
+                    </div>
+                </x-slot>
+            </x-adminlte-input>
+        @endif
         <x-adminlte-button class="btn-flat" type="submit" label="Create" theme="success" icon="fas fa-lg fa-save" />
     </form>
 @stop

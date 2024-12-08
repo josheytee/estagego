@@ -352,6 +352,34 @@ return [
                     'text' => 'Create Video',
                     'url' => 'admin/faqs/create?category=4',
                 ],
+                [
+                    'text' => 'Categories',
+                    'icon' => 'fas fa-fw fa-user',
+                    'submenu' => [
+                        [
+                            'text' => 'all',
+                            'route' => 'admin.categories.index',
+                        ],
+                        [
+                            'text' => 'create',
+                            'route' => 'admin.categories.create',
+                        ],
+                    ],
+                ],
+                [
+                    'text' => 'Sub Categories',
+                    'icon' => 'fas fa-fw fa-user',
+                    'submenu' => [
+                        [
+                            'text' => 'all',
+                            'route' => 'admin.subcategories.index',
+                        ],
+                        [
+                            'text' => 'create',
+                            'route' => 'admin.subcategories.create',
+                        ],
+                    ],
+                ],
             ],
         ],
         [

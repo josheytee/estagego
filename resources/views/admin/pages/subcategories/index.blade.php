@@ -2,9 +2,9 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'FAQs')
+@section('subtitle', 'subCategory')
 @section('content_header_title', 'Pages')
-@section('content_header_subtitle', 'FAQs')
+@section('content_header_subtitle', 'subCategory')
 
 {{-- Content body: main page content --}}
 
@@ -15,11 +15,9 @@
     @php
         $heads = [
             'ID',
-            'Category',
-            'Subcategory Name',
-            'Question',
-            'Answer',
-            'Featured',
+            'category_name',
+            'subcategory name',
+            'url',
             'Created',
             'Updated',
             ['label' => 'Actions', 'no-export' => true, 'width' => 10],
@@ -36,7 +34,7 @@
 </button>';
 
         $config = [
-            'data' => [$faqs],
+            'data' => [$subcategories],
             'order' => [[1, 'asc']],
             'columns' => [null, null, null, ['orderable' => false]],
         ];
@@ -44,18 +42,16 @@
 
     {{-- Minimal example / fill data using the component slot --}}
     <x-adminlte-datatable id="table1" :heads="$heads">
-        @foreach ($faqs as $faq)
+        @foreach ($subcategories as $subCategory)
             <tr>
-                <td>{{ $faq->id }}</td>
-                <td>{{ $faq->category->category_name }}</td>
-                <td>{{ $faq->subcategory ? $faq->subcategory->subcategory_name : '' }}</td>
-                <td>{{ $faq->question }}</td>
-                <td>{{ $faq->answer }}</td>
-                <td>{{ $faq->featured }}</td>
-                <td>{{ $faq->created_at }}</td>
-                <td>{{ $faq->updated_at }}</td>
+                <td>{{ $subCategory->id }}</td>
+                <td>{{ $subCategory->category->category_name }}</td>
+                <td>{{ $subCategory->subcategory_name }}</td>
+                <td>{{ $subCategory->url }}</td>
+                <td>{{ $subCategory->created_at }}</td>
+                <td>{{ $subCategory->updated_at }}</td>
                 <td>
-                    <a href=" {{ route('admin.faqs.edit', $faq) }}" class="btn btn-info">
+                    <a href=" {{ route('admin.subcategories.edit', $subCategory) }}" class="btn btn-info">
                         <i class="fa fa-lg fa-fw fa-pen"></i>
                     </a>
                 </td>

@@ -39,7 +39,7 @@ class FaqController extends Controller
         // $category = $request->category;
         $categories = Category::all();
         $subCategories = SubCategory::all();
-
+        // dd($categories, $subCategories);
         if ($faq->category_id == 4) $answer  = json_decode($faq->answer, true);
         else $answer = $faq->answer;
         // dd($answer);
@@ -49,6 +49,7 @@ class FaqController extends Controller
 
     public function update(Request $request, Faq $faq)
     {
+        // dd($request->all());
         if ($request->category_id == 4) {
             $data = $request->only('category_id', 'subcategory_name', 'question');
             $faq->update($data);
