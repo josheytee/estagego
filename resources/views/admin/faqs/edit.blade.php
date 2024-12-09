@@ -31,7 +31,7 @@
                         {{ $subCategory->subcategory_name }}
                     </option>
                 @else
-                    <option value="{{ $subCategory->subcategory_name }}">{{ $subCategory->url }} -
+                    <option value="{{ $subCategory->id }}">{{ $subCategory->url }} -
                         {{ $subCategory->subcategory_name }}
                     </option>
                 @endif

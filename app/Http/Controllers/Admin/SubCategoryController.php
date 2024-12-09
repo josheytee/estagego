@@ -26,7 +26,7 @@ class SubCategoryController extends Controller
         $subcategories = SubCategory::all();
         $model = new SubCategory();
         $categories = Category::all();
-        return view('admin.pages.subcategories.create', compact('category', 'model', 'subcategories', 'categories'));
+        return view('admin.pages.subcategories.create', compact('model', 'subcategories', 'categories'));
     }
 
     public function show(Request $request, SubCategory $scheduleInterview)

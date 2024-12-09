@@ -348,8 +348,12 @@ return [
                     'text' => 'all',
                     'route' => 'admin.faqs.index',
                 ],
+                // [
+                //     'text' => 'Create FAQ',
+                //     'url' => 'admin/faqs/create',
+                // ],
                 [
-                    'text' => 'Create Video',
+                    'text' => 'Create Video FAQ',
                     'url' => 'admin/faqs/create?category=4',
                 ],
                 [
