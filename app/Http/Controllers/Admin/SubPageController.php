@@ -58,11 +58,11 @@ class SubPageController extends Controller
         return redirect()->route('admin.subs.index');
     }
 
-    public function destroy(Request $request, About $testimonial)
+    public function destroy(Request $request, ServicePage $sub)
     {
-        $testimonial->delete();
+        $sub->delete();
 
-        return redirect()->route('site.index');
+        return redirect()->route('admin.subs.index');
     }
 
     public function store(Request $request)
