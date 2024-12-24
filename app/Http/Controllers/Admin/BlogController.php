@@ -23,7 +23,8 @@ class BlogController extends Controller
     public function create(Request $request)
     {
         $model = new Blog();
-        return view('admin.blogs.create', compact('model'));
+        $authors = Authur::all();
+        return view('admin.blogs.create', compact('model', 'authors'));
     }
 
     public function show(Request $request, Blog $blog)

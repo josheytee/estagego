@@ -541,9 +541,9 @@
                 </div>
 
                 <!-- avtar faces -->
-                {{-- <div class="avtar_faces">
-            <img src="{{asset('asset/images/avtar_testimonial.png')}}" alt="image" >
-          </div> --}}
+                <div class="avtar_faces">
+                    <img src="{{ asset('asset/images/avtar_testimonial.png') }}" alt="image">
+                </div>
             </div>
         </div>
         <!-- container end -->

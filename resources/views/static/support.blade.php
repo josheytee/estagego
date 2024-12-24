@@ -48,20 +48,30 @@
                                         style="display: flex; flex-wrap: wrap; justify-content: start; gap: 1rem; padding: 0;">
 
                                         @foreach ($howToVideos as $faq)
+                                            {{-- https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1 --}}
                                             <li
-                                                style="flex: 1 1 45%; max-width: 45%; list-style: none; text-align: center;">
-                                                <a class="popup-youtube play-button"
-                                                    data-url="{{ $faq->answer ? json_decode($faq->answer, true)['url'] : 'https://www.youtube.com/embed/4jnzf1yj48M' }}?autoplay=1&amp;mute=1"
+                                                style="flex: 1 1 30%; max-width: 30%;  list-style: none; text-align: center;">
+                                                <a class="popup-youtube play-button" style="position:unset;"
+                                                    data-url="{{ $faq->answer ? json_decode($faq->answer, true)['url'] : 'https://www.youtube.com/embed/tgbNymZ7vqY' }}"
                                                     data-toggle="modal" data-target="#myModal" title="About Video">
-                                                    <img src="{{ asset('asset/images/about/howto.avif') }}"
-                                                        style="width: 100px; margin-bottom: 1rem;" alt="">
+                                                    <div style="object-fit:cover;">
+                                                        @if (count($faq->images))
+                                                            <img src="{{ asset('storage/faqs/images/' . $faq->images[0]->path) }}"
+                                                                alt="{{ $faq->images[0]->path }}"
+                                                                style="width:100%; margin-bottom: 1rem; max-height:300px">
+                                                        @else
+                                                            <img src="{{ asset('asset/images/about/howto.avif') }}"
+                                                                style="width: 100px; " alt="">
+                                                        @endif
+                                                    </div>
                                                     <div class="waves-block">
                                                         <div class="waves wave-1"></div>
                                                         <div class="waves wave-2"></div>
                                                         <div class="waves wave-3"></div>
                                                     </div>
+
                                                     <span class="play_icon">
-                                                        <img src="http://127.0.0.1:8000/asset/images/play_black.png"
+                                                        <img src="{{ asset('asset/images/play_black.png') }}"
                                                             alt="image">
                                                     </span>
                                                     <div>{{ $faq->question }}</div>

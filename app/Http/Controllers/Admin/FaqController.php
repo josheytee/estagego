@@ -85,8 +85,9 @@ class FaqController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         if ($request->category_id == 4) {
-            $data = $request->only('category_id', 'subcategory_name', 'question');
+            $data = $request->only('category_id', 'subcategory_name', 'subcategory_id', 'question');
             $faq = Faq::create($data);
 
             if ($imagePath = $this->uploadImage($request, 'faqs', \Str::slug($faq->id) . '_' . \Str::slug($faq->question))) {
