@@ -49,9 +49,9 @@ class SubCategoryController extends Controller
         return redirect()->route('admin.subcategories.index');
     }
 
-    public function destroy(Request $request, SubCategory $category)
+    public function destroy(Request $request, SubCategory $subcategory)
     {
-        $category->delete();
+        $subcategory->delete();
 
         return redirect()->route('admin.subcategories.index');
     }

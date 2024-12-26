@@ -54,14 +54,18 @@
                 <td>{{ $faq->featured }}</td>
                 <td>{{ $faq->created_at }}</td>
                 <td>{{ $faq->updated_at }}</td>
-                <td>
-                    <a href=" {{ route('admin.faqs.edit', $faq) }}" class="btn btn-info">
+                <td class="d-flex">
+                    <a href=" {{ route('admin.faqs.edit', $faq) }}" class="btn btn-info mr-2">
                         <i class="fa fa-lg fa-fw fa-pen"></i>
+                    </a>
+                    <a onclick="sendDelete('{{ route('admin.faqs.destroy', $faq) }}')" href="#" data-method="DELETE"
+                        data-confirm="Are you sure to delete this item?" class="btn btn-danger pull-right delete">
+                        <i class="fa fa-trash"></i>
                     </a>
                 </td>
             </tr>
         @endforeach
-        {{-- <input type="hidden" id="csrf" value={{ csrf_token() }}> --}}
+        <input type="hidden" id="csrf" value={{ csrf_token() }}>
     </x-adminlte-datatable>
 
 @stop

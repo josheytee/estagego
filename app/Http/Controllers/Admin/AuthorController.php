@@ -44,9 +44,9 @@ class AuthorController extends Controller
         return redirect()->route('admin.authors.index');
     }
 
-    public function destroy(Request $request, About $testimonial)
+    public function destroy(Request $request, Authur $author)
     {
-        $testimonial->delete();
+        $author->delete();
 
         return redirect()->route('admin.authors.index');
     }

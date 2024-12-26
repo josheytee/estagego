@@ -62,11 +62,16 @@
                     <a href=" {{ route('admin.clients.edit', $client) }}" class="btn btn-info">
                         <i class="fa fa-lg fa-fw fa-pen"></i>
                     </a>
+                    <a onclick="sendDelete('{{ route('admin.clients.destroy', $client) }}')" href="#"
+                        data-method="DELETE" data-confirm="Are you sure to delete this item?"
+                        class="btn btn-danger pull-right delete">
+                        <i class="fa fa-trash"></i>
+                    </a>
                 </td>
 
             </tr>
         @endforeach
-        {{-- <input type="hidden" id="csrf" value={{ csrf_token() }}> --}}
+        <input type="hidden" id="csrf" value={{ csrf_token() }}>
     </x-adminlte-datatable>
 
 @stop

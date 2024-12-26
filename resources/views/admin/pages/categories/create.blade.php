@@ -5,7 +5,7 @@
 @section('content_header_subtitle', 'categories')
 
 @section('action')
-    {{ route('admin.clients.store') }}
+    {{ route('admin.categories.store') }}
 @stop
 
 @section('form_array')

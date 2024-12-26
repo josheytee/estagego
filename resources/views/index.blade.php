@@ -22,7 +22,7 @@
                     <!-- banner text -->
                     <div class="banner_text">
                         <!-- h1 -->
-                        <h1> {{ $home->h1 }}</h1>
+                        <h1> {!! $home->h1 !!}</h1>
                         <!-- h2 -->
                         <h2>{!! $home->h2_orange !!}</h2>
                         <!-- p -->

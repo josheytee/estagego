@@ -12,13 +12,6 @@
 
     {{-- Setup data for datatables --}}
 
-id
-name
-email
-phone
-website
-comment
-show
     @php
         $heads = [
             'S/N',
