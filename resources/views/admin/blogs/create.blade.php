@@ -9,13 +9,15 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <form action="{{ route('admin.blogs.store') }}" method="post"  enctype="multipart/form-data">
+    <form action="{{ route('admin.blogs.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        <x-adminlte-options :options="$authors"
-         placeholder="Select an option..."/>
+        <x-adminlte-select-bs name="author_id" label="Author" label-class="text-lightblue">
+            @foreach ($authors as $author)
+                <option value="{{ $author->id }}">{{ $author->first_name . ' ' . $author->last_name }}</option>
+            @endforeach
+        </x-adminlte-select-bs>
         {{-- With prepend slot --}}
-        <x-adminlte-input name="title" label="Title" placeholder="Title" label-class="text-lightblue"
-             enable-old-support>
+        <x-adminlte-input name="title" label="Title" placeholder="Title" label-class="text-lightblue" enable-old-support>
             <x-slot name="prependSlot">
                 <div class="input-group-text">
                     <i class="fas fa-user text-lightblue"></i>
@@ -23,7 +25,7 @@
             </x-slot>
         </x-adminlte-input>
         <x-adminlte-input name="caption" label="Caption" placeholder="Caption" label-class="text-lightblue"
-         enable-old-support>
+            enable-old-support>
             <x-slot name="prependSlot">
                 <div class="input-group-text">
                     <i class="fas fa-user text-lightblue"></i>
@@ -31,15 +33,15 @@
             </x-slot>
         </x-adminlte-input>
         <x-adminlte-input name="date" label="date" placeholder="date" label-class="text-lightblue" type="date"
-             enable-old-support>
+            enable-old-support>
             <x-slot name="prependSlot">
                 <div class="input-group-text">
                     <i class="fas fa-date text-lightblue"></i>
                 </div>
             </x-slot>
         </x-adminlte-input>
-        <x-adminlte-input name="tags" label="tags" placeholder="Separate tags with comma" label-class="text-lightblue" type="tags"
-           enable-old-support>
+        <x-adminlte-input name="tags" label="tags" placeholder="Separate tags with comma" label-class="text-lightblue"
+            type="tags" enable-old-support>
             <x-slot name="prependSlot">
                 <div class="input-group-text">
                     <i class="fas fa-user text-lightblue"></i>
@@ -65,7 +67,7 @@
                     <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                 </div>
             </x-slot>
-         </x-adminlte-textarea>
+        </x-adminlte-textarea>
         <x-adminlte-button class="btn-flat" type="submit" label="Update" theme="success" icon="fas fa-lg fa-save" />
     </form>
 @stop

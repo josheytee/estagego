@@ -14,7 +14,7 @@ class Blog extends Model
     protected $table = 'blogs';
 
     //activating mass assignment by using fillable property signifiying the columns that can be mass assigned
-    protected $fillable = ['title', 'image', 'date', 'tags',];
+    protected $fillable = ['title', 'image', 'date', 'tags', 'author_id', 'caption', 'content'];
 
     public function author()
     {
