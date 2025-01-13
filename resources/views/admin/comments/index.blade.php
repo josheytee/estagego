@@ -22,7 +22,7 @@
             'Website',
             ['label' => 'Comment', 'width' => 30],
             'Show',
-            ['label' => 'Actions', 'no-export' => true, 'width' => 10],
+            ['label' => 'Actions', 'no-export' => true, 'width' => 15],
         ];
 
         $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
@@ -60,19 +60,28 @@
                     @endif
                 </td>
                 <td>
-                    @if ($comment->show)
-                        <a href="" class="btn btn-danger">
+                    <a href="{{ route('admin.comments.acknowledge', $comment) }}"
+                        class="btn {{ !$comment->show ? ' btn-success' : ' btn-danger' }}">
+                        @if ($comment->show)
                             <i class="fas fa-ban"></i>
-                        </a>
-                    @else
-                        <a href="" class="btn btn-success">
+                        @else
                             <i class="fas fa-thumbs-up"></i>
-                        </a>
-                    @endif
+                        @endif
+                    </a>
+                    <a href=" {{ route('admin.comments.edit', $comment) }}" class="btn btn-info">
+                        <i class="fa fa-lg fa-fw fa-pen"></i>
+                    </a>
+                    <a onclick="sendDelete('{{ route('admin.comments.destroy', $comment) }}')" href="#"
+                        data-method="DELETE" data-confirm="Are you sure to delete this item?"
+                        class="btn btn-danger pull-right delete">
+                        <i class="fa fa-trash"></i>
+                    </a>
 
                 </td>
+
             </tr>
         @endforeach
+        <input type="hidden" id="csrf" value={{ csrf_token() }}>
     </x-adminlte-datatable>
 
     {{-- Compressed with style options / fill data using the plugin config --}}
@@ -92,6 +101,36 @@
 
 @push('js')
     <script>
-        console.log("Hi, I'm using the Laravel-AdminLTE package!");
+        function sendDelete(p) {
+
+            event.preventDefault();
+
+            // var choice = confirm(this.getAttribute('data-confirm'));
+            var choice = confirm('you sure to delete this item?');
+
+            if (choice) {
+
+                const token = document.querySelector('#csrf').value;
+                console.log(token);
+
+                var data = new FormData();
+                data.append('_method', 'DELETE');
+                data.append('_token', token);
+                // data.append('organization', 'place');
+                // data.append('requiredkey', 'key');
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', p, true);
+                xhr.onload = function() {
+                    // do something to response
+                    console.log(this.responseText);
+                    window.location.reload();
+                };
+                xhr.send(data);
+            }
+
+            // });
+            // }
+        }
     </script>
 @endpush

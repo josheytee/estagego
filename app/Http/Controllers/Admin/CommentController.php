@@ -18,41 +18,40 @@ class CommentController extends Controller
 
     public function create(Request $request)
     {
-        return view('admin.comments.create');
+        $model = new Comment();
+        return view('admin.comments.create', compact('model'));
     }
 
-    public function show(Request $request, ScheduleInterview $scheduleInterview)
+    public function show(Request $request, Comment $comment)
     {
-        return view('scheduleInterview.show', compact('scheduleInterview'));
+        return view('admin.comments.create', compact('scheduleInterview'));
     }
 
-    public function edit(Request $request, ScheduleInterview $scheduleInterview)
+    public function edit(Request $request, Comment $comment)
     {
-        return view('scheduleInterview.edit', compact('scheduleInterview'));
+        $model = $comment;
+        return view('admin.comments.edit', compact('model'));
     }
 
-    public function update(ScheduleInterviewUpdateRequest $request, ScheduleInterview $scheduleInterview)
+    public function update(Request $request, Comment $comment)
     {
-        $scheduleInterview->update($request->validated());
-
-        $request->session()->flash('scheduleInterview.id', $scheduleInterview->id);
-
-        return redirect()->route('scheduleInterview.index');
+        $comment->update($request->all());
+        return redirect()->route('admin.comments.index');
     }
 
-    public function destroy(Request $request, ScheduleInterview $scheduleInterview)
+    public function destroy(Request $request, Comment $comment)
     {
-        $scheduleInterview->delete();
+        $comment->delete();
 
-        return redirect()->route('scheduleInterview.index');
+        return redirect()->route('admin.comments.index');
     }
 
 
-    public function approve(Comment $comment)
+    public function acknowledge(Comment $comment)
     {
-        $comment->approved = !$comment->approved;
+        $comment->show = !$comment->show;
         $comment->save();
-        return redirect()->route('comments.index');
+        return redirect()->route('admin.comments.index');
     }
 
     public function store(Request $request)
@@ -60,8 +59,8 @@ class CommentController extends Controller
         // dd($request->all() + ['proffession' => null]);
         $comment = Comment::create($request->all());
         if (isset($comment->id))
-            return redirect()->route('comments.index');
+            return redirect()->route('admin.comments.index');
         else
-            return redirect()->route('comments.create');
+            return redirect()->route('admin.comments.create');
     }
 }

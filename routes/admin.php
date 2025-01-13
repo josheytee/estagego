@@ -54,9 +54,8 @@ Route::group(['middleware' => ['auth:admin']], function () {
             // 'show'
         ]]);
         Route::resource('services', ServiceController::class);
-        // Route::get('/contacts/{contact}/acknowledged', [ContactController::class, 'acknowledge'])->name('contact.acknowledge');
         Route::resource('comments', CommentController::class);
-        Route::get('/commment/{comment}/approve', [CommentController::class, 'approve'])->name('comment.approve');
+        Route::get('/commment/{comment}/approve', [CommentController::class, 'acknowledge'])->name('comments.acknowledge');
         // Route::get('/profile', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
         // Route::patch('/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
         // Route::delete('/profile', [AdminProfileController::class, 'destroy'])->name('admin.profile.destroy');

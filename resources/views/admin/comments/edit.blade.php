@@ -7,9 +7,12 @@
 @section('content_header_subtitle', 'Comment')
 
 @section('action')
-    {{ route('admin.comments.store') }}
+    {{ route('admin.comments.update', ['comment' => $model->id]) }}
 @stop
 
+@section('method')
+    @method('PUT')
+@stop
 
 
 @section('form_array')
