@@ -65,7 +65,7 @@
                         <div class="yt_video">
                             <div class="thumbnil">
                                 <a class="popup-youtube play-button"
-                                    data-url="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1"
+                                    data-url="https://www.youtube.com/embed/GdvzcW1HUg4?autoplay=1&mute=0"
                                     data-toggle="modal" data-target="#myModal" title="XJj2PbenIsU">
                                     <span class="play_btn">
                                         <img src="{{ asset('asset/images/play_icon.png') }}" alt="image">
@@ -240,10 +240,12 @@
 
                     <!-- about text -->
                     <div class="about_text">
-                        <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                        <div class="section_title aos-init aos-animate" data-aos="fade-up" data-aos-duration="1500"
+                            data-aos-delay="100">
 
                             <!-- h2 -->
-                            {!! $home->h2 !!}
+
+                            {!! htmlspecialchars_decode($home->h2) !!}
 
                             <!-- p -->
                             {!! $home->caption2 !!}

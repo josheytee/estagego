@@ -37,7 +37,15 @@ class HomeController extends Controller
     public function update(Request $request, Home $home)
     {
         // dd($request->all());
-        $home->update($request->all());
+        $data  = $request->all();
+
+        $data['h1'] = htmlentities($data['h1']);
+        $data['h2_orange'] = htmlentities($data['h2_orange']);
+        $data['h2'] = htmlentities($data['h2']);
+        $data['caption'] = htmlentities($data['caption']);
+        $data['caption2'] = htmlentities($data['caption2']);
+
+        $home->update($data);
 
         // $request->session()->flash('scheduleInterview.id', $scheduleInterview->id);
 
@@ -61,6 +69,18 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         // dd($request->all() + ['proffession' => null]);
+        $data  = $request->only(['title1', 'content1', 'title2', 'content2']);
+        $data['title1'] = htmlentities($data['title1']);
+        $data['content1'] = htmlentities($data['content1']);
+        $data['title2'] = htmlentities($data['title2']);
+        $data['content2'] = htmlentities($data['content2']);
+
+        $about = About::create($request->all());
+
+        if (isset($about->id))
+            return redirect()->route('admin.abouts.index');
+        else
+            return redirect()->route('admin.abouts.create');
         $testimonial = About::create($request->all());
         if (isset($testimonial->id))
             return redirect()->route('contacts.index');
