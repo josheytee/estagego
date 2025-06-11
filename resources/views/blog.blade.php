@@ -87,9 +87,9 @@
                         <div class="col-md-4">
                             <div class="story_box" data-aos="fade-up" data-aos-duration="1500">
                                 <div class="story_img">
-                                    @if (count($blogPost->images))
-                                        <img src="{{ asset('storage/blogs/images/' . $blogPost->images[0]->path) }}"
-                                            alt="{{ $blogPost->images[0]->path }}" style="width: 100%;  object-fit: cover;">
+                                    @if (count($post->images))
+                                        <img src="{{ asset('storage/blogs/images/' . $post->images[0]->path) }}"
+                                            alt="{{ $post->images[0]->path }}" style="width: 100%;  object-fit: cover;">
                                     @endif {{-- <img src="{{$post->image}}" alt="image" > --}}
                                     <span>
                                         @php

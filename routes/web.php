@@ -16,6 +16,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StaticController;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // contact page
 Route::get('/contact', [ContactController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);
+Route::get('/videos', [VideoController::class, 'index']);
+Route::get('/videos/{id}', [VideoController::class, 'index']); //this is for the navigation bar video link
 
 // help_center page
 // Route::get('/help_center', [HelpController::class, 'index']);
