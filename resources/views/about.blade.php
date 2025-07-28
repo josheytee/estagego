@@ -333,10 +333,11 @@
 
                 <div class="section_title">
                     <h2>Have any query about ?</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typese tting <br> indus orem Ipsum has beenthe
-                        standard dummy.</p>
+                    <p>
+
+                    </p>
                 </div>
-                <a href="#" class="btn white_btn">CONTACT US NOW</a>
+                <a href="{{ url('/contact') }}" class="btn white_btn">CONTACT US NOW</a>
             </div>
         </div>
     </section>

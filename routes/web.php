@@ -73,7 +73,7 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/terms-of-use', [PageController::class, 'termsofuse'])->name('terms-of-use');
 Route::get('/privacy-policy', [PageController::class, 'privacypolicy'])->name('privacy-policy');
 // mail
-Route::resource('/mail', MailListController::class);
+Route::resource('/mail', MailListController::class)->names('mail_list');
 
 // service
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
