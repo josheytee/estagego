@@ -47,7 +47,7 @@
         @foreach ($faqs as $faq)
             <tr>
                 <td>{{ $faq->id }}</td>
-                <td>{{ $faq->category->category_name }}</td>
+                <td>{{ $faq->category ? $faq->category->category_name : '' }}</td>
                 <td>{{ $faq->subcategory ? $faq->subcategory->subcategory_name : '' }}</td>
                 <td>{{ $faq->question }}</td>
                 <td>{{ $faq->answer }}</td>

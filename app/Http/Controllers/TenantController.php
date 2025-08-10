@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\SubCategory;
 use App\Models\Category;
@@ -26,7 +26,7 @@ class TenantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() 
+    public function create()
     {
         //
     }
@@ -50,22 +50,14 @@ class TenantController extends Controller
      */
     public function show($id)
     {
-        $subCategoryName='GETTING STARTED';
-          //  $categories=Category::with(['SubCategory'])->get();
-        $categories=Category::with(['SubCategory'])->where('id','=',$id)->get();
-         $ty=$id;
-    //    $subCategories=SubCategory::with(['Faq'])->where('category_id','=',$ty)->where('subcategory_name','=','GETTING STARTED ')->get(); 
-        //  dd( $id);
-        // $subCategories=SubCategory::with(['Faq'])->where('id','=',$id)->get();
-            // $subCategories=DB::select("select s.* from sub_categories s join faqs f on s.category_id=f.category_id where s.category_id=$id and s.subcategory_name='GETTING STARTED'");
-            
-        
-    
-           
+        $subcategoryName = request('subcategory', 'GETTING STARTED'); // default value
+        $categories = Category::with('SubCategory')->where('id', $id)->get();
 
-        // $faqs=Faq::where('subcategory_name','=','GETTING STARTED')->where('category_id','=',$id);
+        $faqs = Faq::where('category_id', $id)
+            ->where('subcategory_name', $subcategoryName)
+            ->get();
 
-        return view('tenant', compact('categories','ty','subCategoryName'));
+        return view('tenant', compact('categories', 'subcategoryName', 'faqs', 'id'));
     }
 
     /**

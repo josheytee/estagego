@@ -25,7 +25,7 @@
     {{-- boostrap select-country --}}
     <link rel="stylesheet" href="{{ asset('asset/css/bootstrap-select-country.min.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('asset/images/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('asset/images/favicon.ico') }}" type="image/x-icon">
 
 </head>
 
